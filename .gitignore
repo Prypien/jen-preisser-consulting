@@ -1,0 +1,4 @@
+# Arbeitsspuren, gehoeren nicht auf die Seite
+.DS_Store
+logs/
+.claude/
