@@ -535,12 +535,12 @@ footer a:hover{color:var(--white)}
 <nav id="nav">
   <a href="#top" class="logo"><i></i>Jen Preisser <span class="sub">Consulting</span></a>
   <div class="nav-links">
+    <a href="#profil"><span class="dec">Profil</span></a>
     <a href="#haltung"><span class="dec">Haltung</span></a>
+    <a href="#arbeiten"><span class="dec">Arbeiten</span></a>
     <a href="#leistungen"><span class="dec">Leistungen</span></a>
     <a href="#level"><span class="dec">Level</span></a>
-    <a href="#arbeiten"><span class="dec">Arbeiten</span></a>
     <a href="#webinar"><span class="dec">Webinar</span></a>
-    <a href="#profil"><span class="dec">Profil</span></a>
   </div>
   <div class="nav-right">
     <span id="clock">Berlin —:—</span>
@@ -603,9 +603,27 @@ footer a:hover{color:var(--white)}
 </div>
 
 <!-- ═══ HALTUNG ═══ -->
-<section class="wrap" id="haltung" data-chapter="01 — Haltung">
+<section class="wrap" id="profil" data-chapter="01 — Profil">
   <div class="sec-head">
-    <div class="eyebrow rv"><em>01</em> — <span class="scram">Haltung</span></div>
+    <div class="eyebrow rv"><em>01</em> — <span class="scram">Profil</span></div>
+    <h2 class="split">Wer hier berät.</h2>
+  </div>
+  <div class="about-grid rv">
+    <div class="col">
+      <p class="big">Ich bin Jen Preisser. Ich entwickle Software mit KI — jeden Tag, nicht als Demo.</p>
+      <p>Eigenes Studio, eigene Produkte, Kundenprojekte. Ich arbeite dort, wo die Dokumentation noch dünn ist und man Dinge selbst herausfinden muss.</p>
+      <p>Beratung bei mir heißt: Sie sprechen mit der Person, die es auch bauen würde.</p>
+      <div class="sig"><b>Solo-Entwicklerin</b><b>Studio-Gründerin</b><b>Remote / DE</b><b>DSGVO-bewusst</b></div>
+    </div>
+    <div class="portrait"><span>Jen Preisser — Founder, Chasing Dreams Interactive</span></div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+
+<section class="wrap" id="haltung" data-chapter="02 — Haltung">
+  <div class="sec-head">
+    <div class="eyebrow rv"><em>02</em> — <span class="scram">Haltung</span></div>
   </div>
 
   <h2 class="claim" id="claim">
@@ -625,9 +643,105 @@ footer a:hover{color:var(--white)}
 </section>
 
 <!-- ═══ LEISTUNGEN ═══ -->
-<section class="wrap" id="leistungen" data-chapter="02 — Leistungen">
+
+<section id="arbeiten" data-chapter="03 — Arbeiten">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow rv"><em>03</em> — <span class="scram">Arbeiten</span></div>
+      <h2 class="split">Gebaut, ausgeliefert, im Einsatz.</h2>
+    </div>
+  </div>
+
+  <!-- Bilder liegen in bilder/. Neue Karte: Bildvariable:url('bilder/datei.jpg') im style ergaenzen.
+       Ohne Bild zeigt die Karte den Farbverlauf. Bilder sind schwarzweiss und faerben sich beim Hover. -->
+  <!-- Bilder liegen in bilder/. Neue Karte: Bildvariable:url('bilder/datei.jpg') im style ergaenzen.
+       Ohne Bild zeigt die Karte den Farbverlauf. Bilder sind schwarzweiss und faerben sich beim Hover. -->
+  <!-- Bilder liegen in bilder/. Neue Karte: Bildvariable:url('bilder/datei.jpg') im style ergaenzen.
+       Bilder sind schwarzweiss und faerben sich beim Hover. -->
+  <!-- Bilder liegen in bilder/. Logo-Kachel: Klasse "logo", bei hellem Grund zusaetzlich "hell".
+       Die Karte bekommt zwei Variablen im style: das weisse Logo fuer den Ruhezustand
+       und das Markenbild, das beim Hover einblendet. -->
+  <div class="rail" id="rail">
+    <div class="row" id="railrow">
+      <article class="pcard accent" style="--img:url('bilder/cdi-cover.jpg')">
+        <div class="shot"></div><div class="sheen"></div>
+        <div class="top"><span class="num">/01</span><span class="kind">Studio</span></div>
+        <div class="bot"><h3>Chasing Dreams Interactive</h3><div class="desc">Mein eigenes Studio. Vier Projekte, alles in einer Hand.</div></div>
+      </article>
+      <article class="pcard" style="--img:url('bilder/bow-and-arrow.jpg')">
+        <div class="shot"></div><div class="sheen"></div>
+        <div class="top"><span class="num">/02</span><span class="kind">iOS · Live</span></div>
+        <div class="bot"><h3>Bow &amp; Arrow</h3><div class="desc">Pixel-Art-Tower-Defense. Ein Jahr Arbeit, seit Juni im Store.</div></div>
+      </article>
+      <article class="pcard" style="--img:url('bilder/grow-into-life.jpg')">
+        <div class="shot"></div><div class="sheen"></div>
+        <div class="top"><span class="num">/03</span><span class="kind">iOS · In Arbeit</span></div>
+        <div class="bot"><h3>Grow into Life</h3><div class="desc">Begleit-App für die frühe Elternzeit. Ruhig statt vollgestopft.</div></div>
+      </article>
+      <article class="pcard marke" style="--mono:url('bilder/logo-etg24.png');--img:url('bilder/etg24.jpg')">
+        <div class="shot"></div><div class="sheen"></div>
+        <div class="top"><span class="num">/04</span><span class="kind">KI · Vertrieb</span></div>
+        <div class="bot"><h3>ETG24</h3><div class="desc">Den kompletten Vertriebsprozess mit KI automatisiert — 50 % weniger Kosten.</div></div>
+      </article>
+      <article class="pcard marke hell" style="--mono:url('bilder/logo-wolfofseo.png');--img:url('bilder/wolfofseo.jpg')">
+        <div class="shot"></div><div class="sheen"></div>
+        <div class="top"><span class="num">/05</span><span class="kind">KI · SEO</span></div>
+        <div class="bot"><h3>Wolf of SEO</h3><div class="desc">SEO mit KI, schon 2022 — auf 10.000 Besucher gebracht.</div></div>
+      </article>
+      <article class="pcard marke" style="--mono:url('bilder/logo-bosch.png');--img:url('bilder/bosch.jpg')">
+        <div class="shot"></div><div class="sheen"></div>
+        <div class="top"><span class="num">/06</span><span class="kind">KI · Data Analytics</span></div>
+        <div class="bot"><h3>Bosch</h3><div class="desc">Anforderungen und Entwicklung mit KI beschleunigt — Schwerpunkt Data Analytics.</div></div>
+      </article>
+      <article class="pcard" style="--img:url('bilder/monday.jpg')">
+        <div class="shot"></div><div class="sheen"></div>
+        <div class="top"><span class="num">/07</span><span class="kind">KI · Werkzeug</span></div>
+        <div class="bot"><h3>Monday</h3><div class="desc">Ordnet Dateien, Mails und Aufgaben. Jeden Morgen eine Lage.</div></div>
+      </article>
+      <article class="pcard" style="--img:url('bilder/weltkarte.jpg')">
+        <div class="shot"></div><div class="sheen"></div>
+        <div class="top"><span class="num">/08</span><span class="kind">Web · 3D</span></div>
+        <div class="bot"><h3>Weltkarte der Geschichte</h3><div class="desc">Interaktiver Globus: hundert Jahre Grenzen und Regierungen.</div></div>
+      </article>
+      <article class="pcard marke hell" style="--mono:url('bilder/logo-purelite.png');--img:url('bilder/purelite.jpg')">
+        <div class="shot"></div><div class="sheen"></div>
+        <div class="top"><span class="num">/09</span><span class="kind">KI · E-Commerce</span></div>
+        <div class="bot"><h3>PURELITE</h3><div class="desc">Google Ads und SEO, KI-gestützt — den Shop Schritt für Schritt ausgebaut.</div></div>
+      </article>
+      <article class="pcard marke hell" style="--mono:url('bilder/logo-sprachcoach.png');--img:url('bilder/sprachcoach.jpg')">
+        <div class="shot"></div><div class="sheen"></div>
+        <div class="top"><span class="num">/10</span><span class="kind">KI · Bildung</span></div>
+        <div class="bot"><h3>Dein Sprachcoach</h3><div class="desc">Dieselbe Handschrift: Google Ads und SEO mit KI, mehr Sichtbarkeit für die Kurse.</div></div>
+      </article>
+      <article class="pcard marke hell" style="--mono:url('bilder/logo-tutorspace.png');--img:url('bilder/tutorspace.jpg')">
+        <div class="shot"></div><div class="sheen"></div>
+        <div class="top"><span class="num">/11</span><span class="kind">Station</span></div>
+        <div class="bot"><h3>TutorSpace</h3><div class="desc">Hier war ich fest im Team — und habe sehr viel gelernt.</div></div>
+      </article>
+      <article class="pcard" style="--img:url('bilder/mark-a2a.jpg')">
+        <div class="shot"></div><div class="sheen"></div>
+        <div class="top"><span class="num">/12</span><span class="kind">KI · Vertrieb</span></div>
+        <div class="bot"><h3>Verkaufsagent A2A</h3><div class="desc">Autonomer Vertriebsagent: wo er trägt, wo der Mensch übernimmt.</div></div>
+      </article>
+      <article class="pcard" style="--img:url('bilder/mark-sprache.jpg')">
+        <div class="shot"></div><div class="sheen"></div>
+        <div class="top"><span class="num">/13</span><span class="kind">KI · Forschung</span></div>
+        <div class="bot"><h3>Sprachassistenten</h3><div class="desc">Wie Stimme die Wahrnehmung von Gesundheitsassistenten prägt.</div></div>
+      </article>
+    </div>
+  </div>
+
+  <div class="rail-foot">
+    <div class="rail-bar"><i id="railbar"></i></div>
+    <span class="rail-hint"><span id="railcur">01</span> / 13</span>
+  </div>
+</section>
+
+<!-- ═══ WEBINAR — weiße Sektion ═══ -->
+
+<section class="wrap" id="leistungen" data-chapter="04 — Leistungen">
   <div class="sec-head">
-    <div class="eyebrow rv"><em>02</em> — <span class="scram">Leistungen</span></div>
+    <div class="eyebrow rv"><em>04</em> — <span class="scram">Leistungen</span></div>
     <div>
       <h2 class="split">Beratung und Workshops, die sich rechnen.</h2>
       <p class="rv" data-d="2" style="color:var(--fg-2);max-width:46ch;margin-top:18px">Die meisten brauchen keine Agenten-Architektur, sondern eine ehrliche Antwort auf zwei Fragen: Wo geht bei uns Arbeitszeit verloren, und was davon kann KI heute übernehmen?</p>
@@ -686,9 +800,10 @@ footer a:hover{color:var(--white)}
 </section>
 
 <!-- ═══ LEVEL ═══ -->
-<section class="wrap" id="level" data-chapter="03 — Level">
+
+<section class="wrap" id="level" data-chapter="05 — Level">
   <div class="sec-head">
-    <div class="eyebrow rv"><em>03</em> — <span class="scram">Level</span></div>
+    <div class="eyebrow rv"><em>05</em> — <span class="scram">Level</span></div>
     <div>
       <h2 class="split">Für jedes Level etwas dabei.</h2>
       <p class="rv" data-d="2" style="color:var(--fg-2);max-width:44ch;margin-top:18px">Von der ersten Frage bis an die Stelle, wo die Dokumentation aufhört. Wir fangen da an, wo Sie stehen.</p>
@@ -743,103 +858,10 @@ footer a:hover{color:var(--white)}
 </section>
 
 <!-- ═══ ARBEITEN ═══ -->
-<section id="arbeiten" data-chapter="04 — Arbeiten">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow rv"><em>04</em> — <span class="scram">Arbeiten</span></div>
-      <h2 class="split">Gebaut, ausgeliefert, im Einsatz.</h2>
-    </div>
-  </div>
 
-  <!-- Bilder liegen in bilder/. Neue Karte: Bildvariable:url('bilder/datei.jpg') im style ergaenzen.
-       Ohne Bild zeigt die Karte den Farbverlauf. Bilder sind schwarzweiss und faerben sich beim Hover. -->
-  <!-- Bilder liegen in bilder/. Neue Karte: Bildvariable:url('bilder/datei.jpg') im style ergaenzen.
-       Ohne Bild zeigt die Karte den Farbverlauf. Bilder sind schwarzweiss und faerben sich beim Hover. -->
-  <!-- Bilder liegen in bilder/. Neue Karte: Bildvariable:url('bilder/datei.jpg') im style ergaenzen.
-       Bilder sind schwarzweiss und faerben sich beim Hover. -->
-  <!-- Bilder liegen in bilder/. Logo-Kachel: Klasse "logo", bei hellem Grund zusaetzlich "hell".
-       Die Karte bekommt zwei Variablen im style: das weisse Logo fuer den Ruhezustand
-       und das Markenbild, das beim Hover einblendet. -->
-  <div class="rail" id="rail">
-    <div class="row" id="railrow">
-      <article class="pcard accent" style="--img:url('bilder/cdi-cover.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/01</span><span class="kind">Studio</span></div>
-        <div class="bot"><h3>Chasing Dreams Interactive</h3><div class="desc">Mein eigenes Studio. Vier Projekte, alles in einer Hand.</div></div>
-      </article>
-      <article class="pcard" style="--img:url('bilder/bow-and-arrow.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/02</span><span class="kind">iOS · Live</span></div>
-        <div class="bot"><h3>Bow &amp; Arrow</h3><div class="desc">Pixel-Art-Tower-Defense. Ein Jahr Arbeit, seit Juni im Store.</div></div>
-      </article>
-      <article class="pcard" style="--img:url('bilder/grow-into-life.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/03</span><span class="kind">iOS · In Arbeit</span></div>
-        <div class="bot"><h3>Grow into Life</h3><div class="desc">Begleit-App für die frühe Elternzeit. Ruhig statt vollgestopft.</div></div>
-      </article>
-      <article class="pcard marke" style="--mono:url('bilder/logo-etg24.png');--img:url('bilder/etg24.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/04</span><span class="kind">KI · Vertrieb</span></div>
-        <div class="bot"><h3>ETG24</h3><div class="desc">Den kompletten Vertriebsprozess mit KI automatisiert — 50 % weniger Kosten.</div></div>
-      </article>
-      <article class="pcard" style="--img:url('bilder/monday.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/05</span><span class="kind">KI · Werkzeug</span></div>
-        <div class="bot"><h3>Monday</h3><div class="desc">Ordnet Dateien, Mails und Aufgaben. Jeden Morgen eine Lage.</div></div>
-      </article>
-      <article class="pcard" style="--img:url('bilder/weltkarte.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/06</span><span class="kind">Web · 3D</span></div>
-        <div class="bot"><h3>Weltkarte der Geschichte</h3><div class="desc">Interaktiver Globus: hundert Jahre Grenzen und Regierungen.</div></div>
-      </article>
-      <article class="pcard marke hell" style="--mono:url('bilder/logo-purelite.png');--img:url('bilder/purelite.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/07</span><span class="kind">KI · E-Commerce</span></div>
-        <div class="bot"><h3>PURELITE</h3><div class="desc">Google Ads und SEO, KI-gestützt — den Shop Schritt für Schritt ausgebaut.</div></div>
-      </article>
-      <article class="pcard marke hell" style="--mono:url('bilder/logo-sprachcoach.png');--img:url('bilder/sprachcoach.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/08</span><span class="kind">KI · Bildung</span></div>
-        <div class="bot"><h3>Dein Sprachcoach</h3><div class="desc">Dieselbe Handschrift: Google Ads und SEO mit KI, mehr Sichtbarkeit für die Kurse.</div></div>
-      </article>
-      <article class="pcard marke hell" style="--mono:url('bilder/logo-tutorspace.png');--img:url('bilder/tutorspace.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/09</span><span class="kind">Station</span></div>
-        <div class="bot"><h3>TutorSpace</h3><div class="desc">Hier war ich fest im Team — und habe sehr viel gelernt.</div></div>
-      </article>
-      <article class="pcard marke hell" style="--mono:url('bilder/logo-wolfofseo.png');--img:url('bilder/wolfofseo.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/10</span><span class="kind">KI · SEO</span></div>
-        <div class="bot"><h3>Wolf of SEO</h3><div class="desc">SEO mit KI, schon 2022 — auf 10.000 Besucher gebracht.</div></div>
-      </article>
-      <article class="pcard marke" style="--mono:url('bilder/logo-bosch.png');--img:url('bilder/bosch.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/11</span><span class="kind">KI · Data Analytics</span></div>
-        <div class="bot"><h3>Bosch</h3><div class="desc">Anforderungen und Entwicklung mit KI beschleunigt — Schwerpunkt Data Analytics.</div></div>
-      </article>
-      <article class="pcard" style="--img:url('bilder/mark-a2a.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/12</span><span class="kind">KI · Vertrieb</span></div>
-        <div class="bot"><h3>Verkaufsagent A2A</h3><div class="desc">Autonomer Vertriebsagent: wo er trägt, wo der Mensch übernimmt.</div></div>
-      </article>
-      <article class="pcard" style="--img:url('bilder/mark-sprache.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/13</span><span class="kind">KI · Forschung</span></div>
-        <div class="bot"><h3>Sprachassistenten</h3><div class="desc">Wie Stimme die Wahrnehmung von Gesundheitsassistenten prägt.</div></div>
-      </article>
-    </div>
-  </div>
-
-  <div class="rail-foot">
-    <div class="rail-bar"><i id="railbar"></i></div>
-    <span class="rail-hint"><span id="railcur">01</span> / 13</span>
-  </div>
-</section>
-
-<!-- ═══ WEBINAR — weiße Sektion ═══ -->
-<section class="wrap inv" id="webinar" data-chapter="05 — Webinar">
+<section class="wrap inv" id="webinar" data-chapter="06 — Webinar">
   <div class="sec-head">
-    <div class="eyebrow rv"><em>05</em> — <span class="scram">Live</span></div>
+    <div class="eyebrow rv"><em>06</em> — <span class="scram">Live</span></div>
     <h2 class="split">Das nächste Webinar.</h2>
   </div>
 
@@ -893,23 +915,7 @@ footer a:hover{color:var(--white)}
 </section>
 
 <!-- ═══ PROFIL ═══ -->
-<section class="wrap" id="profil" data-chapter="06 — Profil">
-  <div class="sec-head">
-    <div class="eyebrow rv"><em>06</em> — <span class="scram">Profil</span></div>
-    <h2 class="split">Wer hier berät.</h2>
-  </div>
-  <div class="about-grid rv">
-    <div class="col">
-      <p class="big">Ich bin Jen Preisser. Ich entwickle Software mit KI — jeden Tag, nicht als Demo.</p>
-      <p>Eigenes Studio, eigene Produkte, Kundenprojekte. Ich arbeite dort, wo die Dokumentation noch dünn ist und man Dinge selbst herausfinden muss.</p>
-      <p>Beratung bei mir heißt: Sie sprechen mit der Person, die es auch bauen würde.</p>
-      <div class="sig"><b>Solo-Entwicklerin</b><b>Studio-Gründerin</b><b>Remote / DE</b><b>DSGVO-bewusst</b></div>
-    </div>
-    <div class="portrait"><span>Jen Preisser — Founder, Chasing Dreams Interactive</span></div>
-  </div>
-</section>
 
-<!-- ═══ CTA ═══ -->
 <section class="cta wrap" id="kontakt" data-chapter="07 — Kontakt">
   <div class="eyebrow rv"><em>07</em> — <span class="scram">Kontakt</span></div>
   <h2 class="rv" data-d="1" style="margin-top:20px">Reden wir<br>über <span class="ital">Ihren</span><br>Fall.</h2>
@@ -939,6 +945,8 @@ footer a:hover{color:var(--white)}
     <div><b>Erstgespräch</b>30 Minuten, unverbindlich</div>
   </div>
 </section>
+
+
 
 <footer>
   <span>© <span id="yr"></span> Jen Preisser Consulting</span>
