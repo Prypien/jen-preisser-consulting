@@ -2,3 +2,9 @@
 .DS_Store
 logs/
 .claude/
+
+# Unbearbeitete Foto-Originale: liegen lokal, gehen nicht mit online.
+# Aufbereitet werden sie mit bilder/portraits-aufbereiten.py.
+# Bewusst ein Ordner und kein Endungsmuster: macOS hat core.ignorecase=true,
+# damit haette "bilder/*.JPG" auch die fertigen .jpg mit ausgeschlossen.
+bilder/originale/
