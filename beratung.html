@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Jen Preisser — KI-Beratung & Produktentwicklung</title>
+<title>Persönliche Beratung — Jen Preisser Consulting</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 36'%3E%3Cg stroke='%23FF3B1F' stroke-width='2.4' stroke-linejoin='round' fill='none'%3E%3Cpath d='M16 2 30 10 30 26 16 34 2 26 2 10Z'/%3E%3Cpath d='M16 2 16 18M16 18 30 26M16 18 2 26'/%3E%3C/g%3E%3Cg fill='%23FF3B1F'%3E%3Ccircle cx='16' cy='10' r='2.6'/%3E%3Ccircle cx='23' cy='22' r='2.6'/%3E%3Ccircle cx='9' cy='22' r='2.6'/%3E%3C/g%3E%3C/svg%3E" />
-<meta name="description" content="Jen Preisser Consulting — KI-Strategie, Automatisierung und Produktentwicklung. Von jemandem, der selbst baut." />
+<meta name="description" content="Persönliche KI-Beratung — Standortbestimmung, Team-Workshop und Umsetzungsbegleitung mit klaren Preisen." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<!-- Modus vor dem ersten Pixel setzen, sonst blitzt der Ladeschirm falsch auf.
-     Hell ist die Grundstellung, Dunkel nur nach ausdrücklicher Wahl. -->
 <script>try{if(localStorage.getItem('jp-theme')!=='dark')document.documentElement.dataset.theme='light'}catch(e){document.documentElement.dataset.theme='light'}</script>
 <style>
+/* ═══ Designsystem, 1:1 aus index.html ═══ */
+
 /* ═══════════════════════════════════════════════════
    TOKENS — Schwarz/Weiß als Basis, Vermillion voll
    gesättigt als einziger Akzent. Keine Pastelltöne.
@@ -610,24 +610,112 @@ footer a:hover{color:var(--white)}
   .pcard{opacity:1;transform:none;clip-path:none}
   #mesh{display:none}
 }
+
+
+/* ═══════════════════ NUR AUF DIESER SEITE ═══════════════════ */
+.sub-hero{padding:clamp(128px,17vh,180px) 0 clamp(40px,6vh,72px)}
+.sub-hero h1{font-size:clamp(38px,7.4vw,104px);letter-spacing:-.045em;max-width:14ch}
+.sub-hero .lead{color:var(--fg-2);max-width:54ch;margin-top:clamp(20px,2.6vw,32px);font-size:clamp(14.5px,1.2vw,18px)}
+.back{display:inline-flex;align-items:center;gap:9px;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-2);margin-bottom:22px;transition:color .35s var(--e)}
+.back:hover{color:var(--acc)}
+.back i{display:block;width:14px;height:1px;background:currentColor;transition:width .4s var(--e)}
+.back:hover i{width:22px}
+
+/* Pakete */
+.pkgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:12px;align-items:stretch}
+.pkg{
+  display:flex;flex-direction:column;gap:18px;
+  border:1px solid var(--hair);border-radius:4px;padding:clamp(24px,2.6vw,34px);
+  background:var(--bg);position:relative;isolation:isolate;
+  transition:transform .55s var(--e),border-color .55s var(--e);
+}
+.pkg::before{
+  content:"";position:absolute;inset:0;border-radius:4px;z-index:-1;opacity:0;
+  background:linear-gradient(160deg,rgba(255,59,31,.09),transparent 62%);
+  transition:opacity .55s var(--e);
+}
+.pkg:hover{transform:translateY(-4px);border-color:rgba(255,59,31,.5)}
+.pkg:hover::before{opacity:1}
+.pkg.lead-pkg{border-color:rgba(255,59,31,.45)}
+.pkg .tag{
+  position:absolute;top:-1px;right:16px;
+  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--acc);color:#fff;padding:4px 10px;border-radius:0 0 3px 3px;
+}
+.pkg .no{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--acc)}
+.pkg h3{font-size:clamp(22px,2.3vw,31px);letter-spacing:-.04em;line-height:1}
+.pkg .fmt{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-2)}
+.pkg .terms{border-top:1px solid var(--hair);padding-top:16px;margin-top:2px}
+.pkg .terms b{display:block;font-size:clamp(19px,2vw,26px);font-weight:800;font-stretch:118%;letter-spacing:-.038em;line-height:1.05}
+.pkg .terms small{display:block;margin-top:8px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-2)}
+.pkg ul{list-style:none;display:grid;gap:0;margin-top:2px}
+.pkg li{display:flex;gap:11px;padding:9px 0;border-bottom:1px solid var(--hair-2);font-size:13.5px;color:var(--fg-2);line-height:1.45}
+.pkg li:last-child{border-bottom:0}
+.pkg li::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:var(--acc);margin-top:7px;opacity:.75}
+.pkg .go{
+  margin-top:auto;display:inline-flex;align-items:center;justify-content:space-between;gap:16px;
+  border:1px solid currentColor;border-radius:100px;padding:13px 20px;
+  font-size:14px;font-weight:700;font-stretch:110%;letter-spacing:-.02em;
+}
+.pkg .go svg{transition:transform .5s var(--e)}
+.pkg .go:hover svg{transform:translateX(4px)}
+
+/* Ablauf */
+.steps{border-top:1px solid var(--hair)}
+.step{
+  display:grid;grid-template-columns:58px 1fr 1.15fr;gap:clamp(14px,3vw,44px);
+  padding:clamp(20px,2.6vw,34px) 0;border-bottom:1px solid var(--hair);
+  transition:padding-left .55s var(--e),background .55s var(--e);
+}
+.step:hover{padding-left:18px;background:linear-gradient(90deg,rgba(255,59,31,.06),transparent 58%)}
+.step .no{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--acc);padding-top:5px;letter-spacing:.08em}
+.step h3{font-size:clamp(18px,2vw,27px);letter-spacing:-.035em}
+.step p{color:var(--fg-2);font-size:13.5px;max-width:50ch}
+@media(max-width:760px){.step{grid-template-columns:38px 1fr}.step p{grid-column:2}}
+
+/* Rahmen / FAQ */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair)}
+.fact{background:var(--bg);padding:24px 22px}
+.fact b{display:block;font-family:'DM Mono',monospace;font-weight:400;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+.fact p{font-size:13.5px;color:var(--fg-2);line-height:1.5}
+.note{margin-top:26px;font-size:12.5px;color:var(--fg-2);max-width:62ch}
+
+/* Team */
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.mate{display:flex;flex-direction:column;gap:14px}
+.mate .por{
+  aspect-ratio:4/5;border-radius:4px;position:relative;overflow:hidden;
+  background:linear-gradient(155deg,var(--ink-3),var(--ink));
+  display:grid;place-items:center;
+  transition:transform .6s var(--e);
+}
+.mate:hover .por{transform:translateY(-4px)}
+.mate .por::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(105% 78% at 26% 14%,rgba(255,59,31,.42),transparent 60%);
+}
+/* Platzhalter: Würfel statt Foto, bis ein Bild da ist */
+.mate .por svg{width:38%;color:rgba(244,243,239,.34);position:relative;z-index:1}
+.mate .por img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.mate .nm{font-weight:800;font-stretch:118%;font-size:clamp(17px,1.6vw,22px);letter-spacing:-.035em;line-height:1.05}
+.mate .rl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-top:7px}
+.mate .bio{font-size:13px;color:var(--fg-2);line-height:1.5;margin-top:9px}
+.mate.open .por{background:linear-gradient(155deg,var(--ink-2),var(--ink))}
+.mate.open .por::after{background:radial-gradient(105% 78% at 26% 14%,rgba(255,59,31,.13),transparent 60%)}
+.mate.open .nm{color:var(--fg-2)}
+.mate .slot{
+  display:inline-block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;
+  border:1px solid var(--hair);border-radius:100px;padding:4px 10px;color:var(--fg-2);margin-top:9px;
+}
 </style>
 </head>
 <body>
 
-<div id="pre">
-  <div class="inner">
-    <span class="nm">Jen&nbsp;Preisser</span>
-    <div class="ct"><span id="pct">00</span> — KI-Beratung</div>
-    <div class="bar"><i id="pbar"></i></div>
-  </div>
-</div>
-
 <div id="prog"></div>
 <div class="cursor" id="cur"><span>Mehr</span></div>
-<div id="chapter"><i></i><span id="chtxt"></span></div>
 
 <nav id="nav">
-  <a href="#top" class="logo">
+  <a href="index.html" class="logo">
     <svg class="mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
       <g stroke="currentColor" stroke-width="1.9" stroke-linejoin="round">
         <path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/>
@@ -638,887 +726,294 @@ footer a:hover{color:var(--white)}
       </g>
     </svg>Jen Preisser <span class="sub">Consulting</span></a>
   <div class="nav-links">
-    <a href="#profil"><span class="dec">Profil</span></a>
-    <a href="#haltung"><span class="dec">Haltung</span></a>
-    <a href="#arbeiten"><span class="dec">Arbeiten</span></a>
-    <a href="#leistungen"><span class="dec">Leistungen</span></a>
-    <a href="#level"><span class="dec">Level</span></a>
-    <a href="#webinar"><span class="dec">Webinar</span></a>
-    <a href="beratung.html"><span class="dec">Beratung</span></a>
+    <a href="index.html#profil"><span class="dec">Profil</span></a>
+    <a href="index.html#arbeiten"><span class="dec">Arbeiten</span></a>
+    <a href="index.html#level"><span class="dec">Level</span></a>
+    <a href="index.html#webinar"><span class="dec">Webinar</span></a>
   </div>
   <div class="nav-right">
     <span id="clock">Berlin —:—</span>
     <button id="theme" class="tgl" type="button" aria-pressed="true" aria-label="Dunklen Modus einschalten"><i></i></button>
-    <a href="funnel.html?intent=webinar" class="nav-cta cfill"><span>Webinar sichern</span></a>
+    <a href="funnel.html?intent=beratung" class="nav-cta cfill"><span>Beratung anfragen</span></a>
   </div>
 </nav>
 
-<!-- ═══ HERO ═══ -->
-<header class="hero wrap" id="top" data-accent data-chapter="Start">
-  <div class="field">
-    <b></b><b></b>
-    <canvas id="mesh"></canvas>
-  </div>
-
-  <div class="hero-top">
-    <div>
-      <a class="badge eyebrow" href="#webinar">
-        <i></i><span class="scram">Neues Webinar</span>
-        <span class="sep">/</span><span id="badgedate">8. September</span>
-        <span class="arw">→</span>
-      </a>
-      <div class="eyebrow" style="margin-top:12px"><span class="scram">KI-Beratung &amp; Produktentwicklung</span></div>
-    </div>
-    <p class="rt">Strategie, Automatisierung und echte Software.</p>
-  </div>
-
-  <h1 class="hero-title">
-    <span class="ln"><span>Künstliche</span></span>
-    <span class="ln"><span class="out">Intelligenz,</span></span>
-    <span class="ln"><span><span class="slot" id="slot"><ul>
-      <li>angewandt.</li>
-      <li>im Einsatz.</li>
-      <li>verstanden.</li>
-      <li>durchgeführt.</li>
-      <li>ausgeliefert.</li>
-      <li>durchgerechnet.</li>
-      <li>eingeführt.</li>
-      <li>die Zeit spart.</li>
-      <li>die sich rechnet.</li>
-      <li>ohne Hype.</li>
-      <li>im Alltag.</li>
-      <li>handfest.</li>
-      <li>messbar.</li>
-      <li>mit Plan.</li>
-      <li>ab Montag.</li>
-      <li>nicht behauptet.</li>
-    </ul></span></span></span>
-  </h1>
-
-  <div class="hero-foot">
-    <p class="lead">Ich berate nicht über Technologie, die ich aus Vorträgen kenne — ich baue sie täglich.</p>
-    <div class="scrollcue eyebrow"><i></i></div>
-  </div>
+<!-- ═══ KOPF ═══ -->
+<header class="sub-hero wrap">
+  <a class="back" href="index.html"><i></i>Zurück zur Übersicht</a>
+  <div class="eyebrow" style="margin-bottom:18px"><em>—</em> Persönliche Beratung</div>
+  <h1>Drei Wege hinein.</h1>
+  <p class="lead">Beratung bei mir heißt: Sie sprechen mit Menschen, die es auch bauen würden. Vom kostenlosen Webinar über die einzelne Stunde bis zur durchgehenden Begleitung — Sie steigen da ein, wo es für Sie Sinn ergibt, und können jederzeit größer werden.</p>
 </header>
 
-<!-- ═══ WEBINAR-LEISTE — nur sichtbar, solange ein Termin ansteht ═══ -->
-<aside class="wbar" id="wbar">
-  <span class="lbl"><i></i>Nächstes Webinar</span>
-  <span class="ttl">KI im Unternehmen: was 2026 wirklich funktioniert</span>
-  <span class="when"><span id="wbardate">Termin folgt</span> · noch <span id="wbarcd">--</span></span>
-  <a class="go" href="funnel.html?intent=webinar">
-    Kostenlos anmelden
-    <svg width="17" height="12" viewBox="0 0 17 12" fill="none" aria-hidden="true"><path d="M11 1l5 5-5 5M16 6H0" stroke="currentColor" stroke-width="1.6"/></svg>
-  </a>
-</aside>
+<!-- ═══ PAKETE ═══ -->
+<section class="wrap" style="padding-top:0">
+  <div class="pkgs">
 
-<div class="ticker">
-  <div class="track" id="track">
-    <span>Arbeitszeit sparen</span><span>Kosten senken</span><span>Team-Workshops</span><span>KI im Arbeitsalltag</span><span>Potenziale bestimmen</span><span>Automatisierung</span>
+    <article class="pkg rv">
+      <div class="no">/01</div>
+      <h3>Webinare</h3>
+      <div class="fmt">Live · Online · Für Gruppen</div>
+      <div class="terms"><b>Offen oder intern</b><small>Nächster offener Termin: 8. September</small></div>
+      <ul>
+        <li>Offene Webinare, an denen jeder teilnehmen kann — kostenlos</li>
+        <li>Interne Webinare für Ihr Team, zugeschnitten auf Ihre Branche</li>
+        <li>Kein Hype-Vortrag: die Werkzeuge, die heute wirklich im Einsatz sind</li>
+        <li>Aufzeichnung und Unterlagen für alle, die nicht live dabei sein konnten</li>
+      </ul>
+      <a class="go cfill" href="funnel.html?intent=webinar">
+        <span>Zum Webinar</span>
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none" aria-hidden="true"><path d="M11 1l5 5-5 5M16 6H0" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+    </article>
+
+    <article class="pkg lead-pkg rv" data-d="1">
+      <span class="tag">Schnellster Einstieg</span>
+      <div class="no">/02</div>
+      <h3>Einzelstunden</h3>
+      <div class="fmt">60 Minuten · 1:1 · Remote</div>
+      <div class="terms"><b>Einzeln oder als Paket</b><small>Preis auf Anfrage</small></div>
+      <ul>
+        <li>Eine konkrete Frage, eine Stunde, eine Antwort — ohne Projektaufsatz</li>
+        <li>Wir teilen den Bildschirm und arbeiten an Ihrem echten Fall</li>
+        <li>Auch für Fortgeschrittene, die an einer bestimmten Stelle feststecken</li>
+        <li>Als Paket buchbar, wenn Sie über längere Zeit jemanden zum Rückfragen brauchen</li>
+        <li>Notizen und Links danach schriftlich</li>
+      </ul>
+      <a class="go cfill" href="funnel.html?intent=beratung">
+        <span>Stunde anfragen</span>
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none" aria-hidden="true"><path d="M11 1l5 5-5 5M16 6H0" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+    </article>
+
+    <article class="pkg rv" data-d="2">
+      <div class="no">/03</div>
+      <h3>Ganze Beratungen</h3>
+      <div class="fmt">Projekt oder monatlich · Remote &amp; vor Ort</div>
+      <div class="terms"><b>Nach Umfang kalkuliert</b><small>Angebot nach dem Erstgespräch</small></div>
+      <ul>
+        <li>Standortbestimmung: wo bei Ihnen tatsächlich Hebel liegt, priorisiert nach Aufwand gegen Wirkung</li>
+        <li>Team-Workshops, nach denen Ihre Leute ohne uns weiterarbeiten</li>
+        <li>Umsetzung: Automatisierungen und Agenten, angebunden an Ihre bestehenden Systeme</li>
+        <li>Feste Kapazität pro Monat, wenn es länger läuft — mit festem wöchentlichem Termin</li>
+        <li>Schriftliches Angebot mit festem Umfang, keine Tagewerke, die sich unterwegs verdoppeln</li>
+      </ul>
+      <a class="go cfill" href="funnel.html?intent=beratung">
+        <span>Fall schildern</span>
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none" aria-hidden="true"><path d="M11 1l5 5-5 5M16 6H0" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+    </article>
+
   </div>
-</div>
 
-<!-- ═══ HALTUNG ═══ -->
-<section class="wrap" id="profil" data-chapter="01 — Profil">
+  <p class="note">Preise nenne ich nach dem Erstgespräch, weil sie vom Umfang abhängen — und weil ich lieber ein Angebot mache, das passt, als eine Zahl, die niemandem hilft. Das Erstgespräch ist in jedem Fall kostenlos. Für gemeinnützige Organisationen und sehr kleine Teams finden wir eine Lösung, fragen Sie einfach.</p>
+</section>
+
+<!-- ═══ ABLAUF ═══ -->
+<section class="wrap">
   <div class="sec-head">
-    <div class="eyebrow rv"><em>01</em> — <span class="scram">Profil</span></div>
-    <h2 class="split">Wer hier berät.</h2>
+    <div class="eyebrow rv"><em>01</em> — Ablauf</div>
+    <h2 class="rv" data-d="1">Wie das abläuft.</h2>
   </div>
-  <div class="about-grid rv">
-    <div class="col">
-      <p class="big">Ich bin Jen Preisser. Ich entwickle Software mit KI — jeden Tag, nicht als Demo.</p>
-      <p>Eigenes Studio, eigene Produkte, Kundenprojekte. Ich arbeite dort, wo die Dokumentation noch dünn ist und man Dinge selbst herausfinden muss.</p>
-      <p>Beratung bei mir heißt: Sie sprechen mit der Person, die es auch bauen würde.</p>
-      <p>Heute berate ich allein. Der Plan ist größer: ein Netzwerk aus Menschen, die KI wirklich einsetzen — und Unternehmen, die genau die suchen.</p>
-      <div class="sig"><b>Solo-Entwicklerin</b><b>Studio-Gründerin</b><b>Remote / DE</b><b>DSGVO-bewusst</b></div>
+
+  <div class="steps rv" data-d="2">
+    <div class="step">
+      <div class="no">/01</div>
+      <div><h3>Sie ordnen sich ein</h3></div>
+      <p>Ein kurzer Fragebogen: wo Sie stehen, was Sie vorhaben, wie Ihr Team heute arbeitet. Drei Minuten. Danach weiß ich vorab, worum es geht.</p>
     </div>
-    <div class="portrait"><span>Jen Preisser — Founder, Chasing Dreams Interactive</span></div>
+    <div class="step">
+      <div class="no">/02</div>
+      <div><h3>Erstgespräch, 30 Minuten</h3></div>
+      <p>Kostenlos und unverbindlich. Wir klären, ob ich der Richtige bin. Wenn nicht, sage ich das — und meistens auch, wer es dann ist.</p>
+    </div>
+    <div class="step">
+      <div class="no">/03</div>
+      <div><h3>Angebot mit festem Umfang</h3></div>
+      <p>Schriftlich, mit Leistungen, Zeitrahmen und Preis. Keine Tagewerke, die sich unterwegs verdoppeln.</p>
+    </div>
+    <div class="step">
+      <div class="no">/04</div>
+      <div><h3>Wir arbeiten</h3></div>
+      <p>Und Sie bekommen etwas in die Hand, das ohne mich weiterläuft. Das ist der Punkt — nicht die Abhängigkeit.</p>
+    </div>
   </div>
+</section>
+
+<!-- ═══ RAHMEN ═══ -->
+<section class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow rv"><em>02</em> — Rahmen</div>
+    <h2 class="rv" data-d="1">Das Kleingedruckte, groß.</h2>
+  </div>
+
+  <div class="facts rv" data-d="2">
+    <div class="fact"><b>Ort</b><p>Remote als Standard. Vor Ort im deutschsprachigen Raum möglich, Reisekosten nach Aufwand.</p></div>
+    <div class="fact"><b>Sprache</b><p>Deutsch oder Englisch.</p></div>
+    <div class="fact"><b>Daten</b><p>DSGVO-bewusstes Vorgehen. Auf Wunsch Werkzeuge mit Verarbeitung in der EU. NDA jederzeit.</p></div>
+    <div class="fact"><b>Rechnung</b><p>Nach Leistung, 14 Tage netto. Bei der Umsetzungsbegleitung monatlich im Voraus.</p></div>
+    <div class="fact"><b>Absage</b><p>Termine bis 7 Tage vorher kostenfrei verschiebbar.</p></div>
+    <div class="fact"><b>Vorlauf</b><p>Aktuell etwa zwei bis drei Wochen bis zum ersten Termin.</p></div>
+  </div>
+</section>
+
+<!-- ═══ TEAM ═══
+     Neue Person: .mate Block kopieren, Klasse "open" entfernen, den Slot-Hinweis löschen
+     und im .por das <svg> durch <img src="bilder/name.jpg" alt="Vorname Nachname"> ersetzen.
+     Bilder werden automatisch schwarzweiß beschnitten. -->
+<section class="wrap" id="team">
+  <div class="sec-head">
+    <div class="eyebrow rv"><em>03</em> — Team</div>
+    <div>
+      <h2 class="rv" data-d="1">Wer mitarbeitet.</h2>
+      <p class="rv" data-d="2" style="color:var(--fg-2);max-width:46ch;margin-top:18px">Angefangen hat das als Ein-Personen-Beratung. Es bleibt nicht dabei — KI-Themen sind zu breit, als dass ein Kopf sie alle abdecken könnte. Diese Rollen besetze ich gerade.</p>
+    </div>
+  </div>
+
+  <div class="team rv" data-d="3">
+
+    <article class="mate">
+      <div class="por">
+        <svg viewBox="0 0 32 36" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><g fill="currentColor"><circle cx="16" cy="10" r="1.8"/><circle cx="23" cy="22" r="1.8"/><circle cx="9" cy="22" r="1.8"/></g></svg>
+      </div>
+      <div>
+        <div class="nm">Jen Preisser</div>
+        <div class="rl">Gründerin · Strategie &amp; Entwicklung</div>
+        <p class="bio">Entwickelt seit Jahren täglich Software mit KI. Eigenes Studio, eigene Produkte, Kundenprojekte. Zuständig für alles, wofür es noch keine Anleitung gibt.</p>
+      </div>
+    </article>
+
+    <article class="mate open">
+      <div class="por">
+        <svg viewBox="0 0 32 36" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g></svg>
+      </div>
+      <div>
+        <div class="nm">N. N.</div>
+        <div class="rl">Prozesse &amp; Automatisierung</div>
+        <p class="bio">Übersetzt gewachsene Abläufe in Systeme, die ohne Zuruf laufen. Schwerpunkt Mittelstand und Verwaltung.</p>
+        <span class="slot">Position wird besetzt</span>
+      </div>
+    </article>
+
+    <article class="mate open">
+      <div class="por">
+        <svg viewBox="0 0 32 36" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g></svg>
+      </div>
+      <div>
+        <div class="nm">N. N.</div>
+        <div class="rl">Daten &amp; Integration</div>
+        <p class="bio">Bringt KI an bestehende Systeme heran — CRM, ERP, Dokumentenablage. Damit die Ergebnisse dort landen, wo gearbeitet wird.</p>
+        <span class="slot">Position wird besetzt</span>
+      </div>
+    </article>
+
+    <article class="mate open">
+      <div class="por">
+        <svg viewBox="0 0 32 36" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g></svg>
+      </div>
+      <div>
+        <div class="nm">N. N.</div>
+        <div class="rl">Enablement &amp; Workshops</div>
+        <p class="bio">Bringt Teams dahin, dass sie ohne uns weiterarbeiten. Didaktik statt Vortrag.</p>
+        <span class="slot">Position wird besetzt</span>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="note">Sie arbeiten selbst an der Spitze mit KI und wollen beraten statt anstellen? <a href="mailto:kontakt@jenpreisser-consulting.de?subject=Als%20Berater%20mitarbeiten" style="border-bottom:1px solid var(--hair)">Schreiben Sie mir.</a></p>
 </section>
 
 <!-- ═══ CTA ═══ -->
-
-<section class="wrap" id="haltung" data-chapter="02 — Haltung">
-  <div class="sec-head">
-    <div class="eyebrow rv"><em>02</em> — <span class="scram">Haltung</span></div>
-  </div>
-
-  <h2 class="claim" id="claim">
-    <span class="cl">KI-Projekte scheitern</span>
-    <span class="cl">selten an der Technik.</span>
-    <span class="cl dim">Sondern daran, dass</span>
-    <span class="cl dim">niemand beides versteht:</span>
-    <span class="cl hi">Geschäft und Code.</span>
-  </h2>
-
-  <p class="rv" data-d="1" style="color:var(--fg-2);max-width:54ch;margin-top:28px">Eine Milliarde Menschen nutzen inzwischen KI-Chats. Aber nur ein Bruchteil arbeitet mit den Werkzeugen, die tatsächlich etwas verändern: Agenten, die an die eigenen Systeme angebunden sind und eine Aufgabe zu Ende bringen. Genau dort arbeite ich — und genau das gebe ich weiter.</p>
-
-  <div class="stats rv">
-    <div class="stat"><b class="dec-num">2</b><small>Eigene Produkte in Entwicklung</small></div>
-    <div class="stat"><b class="dec-num">13</b><small>Umgesetzte Projekte, Web bis Automatisierung</small></div>
-    <div class="stat"><b class="dec-num">1:1</b><small>Direkt mit mir, keine Zwischenebene</small></div>
-    <div class="stat"><b class="dec-num">30 MIN</b><small>Erstgespräch, unverbindlich</small></div>
-  </div>
-</section>
-
-<!-- ═══ LEISTUNGEN ═══ -->
-
-<section id="arbeiten" data-chapter="03 — Arbeiten">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow rv"><em>03</em> — <span class="scram">Arbeiten</span></div>
-      <h2 class="split">Gebaut, ausgeliefert, im Einsatz.</h2>
-    </div>
-  </div>
-
-  <!-- Bilder liegen in bilder/. Neue Karte: Bildvariable:url('bilder/datei.jpg') im style ergaenzen.
-       Ohne Bild zeigt die Karte den Farbverlauf. Bilder sind schwarzweiss und faerben sich beim Hover. -->
-  <!-- Bilder liegen in bilder/. Neue Karte: Bildvariable:url('bilder/datei.jpg') im style ergaenzen.
-       Ohne Bild zeigt die Karte den Farbverlauf. Bilder sind schwarzweiss und faerben sich beim Hover. -->
-  <!-- Bilder liegen in bilder/. Neue Karte: Bildvariable:url('bilder/datei.jpg') im style ergaenzen.
-       Bilder sind schwarzweiss und faerben sich beim Hover. -->
-  <!-- Bilder liegen in bilder/. Logo-Kachel: Klasse "logo", bei hellem Grund zusaetzlich "hell".
-       Die Karte bekommt zwei Variablen im style: das weisse Logo fuer den Ruhezustand
-       und das Markenbild, das beim Hover einblendet. -->
-  <div class="rail" id="rail">
-    <div class="row" id="railrow">
-      <article class="pcard accent" style="--img:url('bilder/cdi-cover.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/01</span><span class="kind">Studio</span></div>
-        <div class="bot"><h3>Chasing Dreams Interactive</h3><div class="desc">Mein eigenes Studio. Vier Projekte, alles in einer Hand.</div></div>
-      </article>
-      <article class="pcard" style="--img:url('bilder/bow-and-arrow.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/02</span><span class="kind">iOS · Live</span></div>
-        <div class="bot"><h3>Bow &amp; Arrow</h3><div class="desc">Pixel-Art-Tower-Defense. Ein Jahr Arbeit, seit Juni im Store.</div></div>
-      </article>
-      <article class="pcard" style="--img:url('bilder/grow-into-life.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/03</span><span class="kind">iOS · In Arbeit</span></div>
-        <div class="bot"><h3>Grow into Life</h3><div class="desc">Begleit-App für die frühe Elternzeit. Ruhig statt vollgestopft.</div></div>
-      </article>
-      <article class="pcard marke" style="--mono:url('bilder/logo-etg24.png');--img:url('bilder/etg24.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/04</span><span class="kind">KI · Vertrieb</span></div>
-        <div class="bot"><h3>ETG24</h3><div class="desc">Den kompletten Vertriebsprozess mit KI automatisiert — 50 % weniger Kosten.</div></div>
-      </article>
-      <article class="pcard marke hell" style="--mono:url('bilder/logo-wolfofseo.png');--img:url('bilder/wolfofseo.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/05</span><span class="kind">KI · SEO</span></div>
-        <div class="bot"><h3>Wolf of SEO</h3><div class="desc">SEO mit KI, schon 2022 — auf 10.000 Besucher gebracht.</div></div>
-      </article>
-      <article class="pcard marke" style="--mono:url('bilder/logo-bosch.png');--img:url('bilder/bosch.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/06</span><span class="kind">KI · Data Analytics</span></div>
-        <div class="bot"><h3>Bosch</h3><div class="desc">Anforderungen und Entwicklung mit KI beschleunigt — Schwerpunkt Data Analytics.</div></div>
-      </article>
-      <article class="pcard" style="--img:url('bilder/monday.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/07</span><span class="kind">KI · Werkzeug</span></div>
-        <div class="bot"><h3>Monday</h3><div class="desc">Ordnet Dateien, Mails und Aufgaben. Jeden Morgen eine Lage.</div></div>
-      </article>
-      <article class="pcard" style="--img:url('bilder/weltkarte.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/08</span><span class="kind">Web · 3D</span></div>
-        <div class="bot"><h3>Weltkarte der Geschichte</h3><div class="desc">Interaktiver Globus: hundert Jahre Grenzen und Regierungen.</div></div>
-      </article>
-      <article class="pcard marke hell" style="--mono:url('bilder/logo-purelite.png');--img:url('bilder/purelite.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/09</span><span class="kind">KI · E-Commerce</span></div>
-        <div class="bot"><h3>PURELITE</h3><div class="desc">Google Ads und SEO, KI-gestützt — den Shop Schritt für Schritt ausgebaut.</div></div>
-      </article>
-      <article class="pcard marke hell" style="--mono:url('bilder/logo-sprachcoach.png');--img:url('bilder/sprachcoach.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/10</span><span class="kind">KI · Bildung</span></div>
-        <div class="bot"><h3>Dein Sprachcoach</h3><div class="desc">Dieselbe Handschrift: Google Ads und SEO mit KI, mehr Sichtbarkeit für die Kurse.</div></div>
-      </article>
-      <article class="pcard marke hell" style="--mono:url('bilder/logo-tutorspace.png');--img:url('bilder/tutorspace.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/11</span><span class="kind">Station</span></div>
-        <div class="bot"><h3>TutorSpace</h3><div class="desc">Hier war ich fest im Team — und habe sehr viel gelernt.</div></div>
-      </article>
-      <article class="pcard" style="--img:url('bilder/mark-a2a.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/12</span><span class="kind">KI · Vertrieb</span></div>
-        <div class="bot"><h3>Verkaufsagent A2A</h3><div class="desc">Autonomer Vertriebsagent: wo er trägt, wo der Mensch übernimmt.</div></div>
-      </article>
-      <article class="pcard" style="--img:url('bilder/mark-sprache.jpg')">
-        <div class="shot"></div><div class="sheen"></div>
-        <div class="top"><span class="num">/13</span><span class="kind">KI · Forschung</span></div>
-        <div class="bot"><h3>Sprachassistenten</h3><div class="desc">Wie Stimme die Wahrnehmung von Gesundheitsassistenten prägt.</div></div>
-      </article>
-    </div>
-  </div>
-
-  <div class="rail-foot">
-    <div class="rail-bar"><i id="railbar"></i></div>
-    <span class="rail-hint"><span id="railcur">01</span> / 13</span>
-  </div>
-</section>
-
-<!-- ═══ WEBINAR — weiße Sektion ═══ -->
-
-<section class="wrap" id="leistungen" data-chapter="04 — Leistungen">
-  <div class="sec-head">
-    <div class="eyebrow rv"><em>04</em> — <span class="scram">Leistungen</span></div>
-    <div>
-      <h2 class="split">Beratung und Workshops, die sich rechnen.</h2>
-      <p class="rv" data-d="2" style="color:var(--fg-2);max-width:46ch;margin-top:18px">Die meisten brauchen keine Agenten-Architektur, sondern eine ehrliche Antwort auf zwei Fragen: Wo geht bei uns Arbeitszeit verloren, und was davon kann KI heute übernehmen?</p>
-    </div>
-  </div>
-
-  <div class="ways rv" id="ways">
-    <article class="way act">
-      <span class="bar"></span>
-      <div class="spine"><span class="no">/01</span><span class="lbl">Potenziale bestimmen</span></div>
-      <div class="body">
-        <div class="big">01</div>
-        <h3>Potenziale<br>bestimmen</h3>
-        <p>Wir gehen Ihre Abläufe durch und rechnen nach: wo Stunden verloren gehen, was das im Jahr kostet, und wo der größte Hebel liegt.</p>
-        <div class="tags"><b>Prozess-Audit</b><b>Zeit &amp; Kosten</b><b>Business Case</b></div>
-      </div>
-    </article>
-
-    <article class="way">
-      <span class="bar"></span>
-      <div class="spine"><span class="no">/02</span><span class="lbl">Toolanalyse &amp; Aufsatz</span></div>
-      <div class="body">
-        <div class="big">02</div>
-        <h3>Toolanalyse<br>&amp; Aufsatz</h3>
-        <p>Welche Werkzeuge passen zum Fall — und wie werden sie sauber aufgesetzt? Ein tragfähiges Fundament für Ihre Use Cases, im Team wie in einzelnen Rollen.</p>
-        <div class="tags"><b>Toolauswahl</b><b>Use Cases</b><b>Aufsatz</b></div>
-      </div>
-    </article>
-
-    <article class="way">
-      <span class="bar"></span>
-      <div class="spine"><span class="no">/03</span><span class="lbl">Umsetzung &amp; Workshops</span></div>
-      <div class="body">
-        <div class="big">03</div>
-        <h3>Umsetzung<br>&amp; Workshops</h3>
-        <p>Mithilfe bei der Umsetzung und Einarbeitung der Teams — an den eigenen Aufgaben, mit Material zum Weiterarbeiten.</p>
-        <div class="tags"><b>Umsetzung</b><b>Team-Workshop</b><b>Einarbeitung</b></div>
-      </div>
-    </article>
-
-    <article class="way">
-      <span class="bar"></span>
-      <div class="spine"><span class="no">/04</span><span class="lbl">Laufende Begleitung</span></div>
-      <div class="body">
-        <div class="big">04</div>
-        <h3>Laufende<br>Begleitung</h3>
-        <p>Beratung über das Projekt hinaus. Ein Ansprechpartner, der mitdenkt, während sich das Feld weiterdreht — monatlich oder projektweise.</p>
-        <div class="tags"><b>Sparring</b><b>Monatlich</b><b>Review</b></div>
-      </div>
-    </article>
-  </div>
-
-  <div class="ways-foot">
-    <span class="eyebrow"><span id="waycur">01</span> / 04</span>
-  </div>
-</section>
-
-<!-- ═══ LEVEL ═══ -->
-
-<section class="wrap" id="level" data-chapter="05 — Level">
-  <div class="sec-head">
-    <div class="eyebrow rv"><em>05</em> — <span class="scram">Level</span></div>
-    <div>
-      <h2 class="split">Für jedes Level etwas dabei.</h2>
-      <p class="rv" data-d="2" style="color:var(--fg-2);max-width:44ch;margin-top:18px">Von der ersten Frage bis an die Stelle, wo die Dokumentation aufhört. Wir fangen da an, wo Sie stehen.</p>
-    </div>
-  </div>
-
-  <div class="lvl">
-    <div class="lvl-row lv1 rv">
-      <div class="no">/01</div>
-      <div class="meter"><i class="on"></i><i></i><i></i><i></i></div>
-      <div>
-        <h3>Kompletter Anfang</h3>
-        <p>Noch nie ernsthaft mit KI gearbeitet. Wir richten die Werkzeuge ein, geben die erste echte Aufgabe ab und nehmen die Scheu davor.</p>
-      </div>
-    </div>
-
-    <div class="lvl-row lv2 rv" data-d="1">
-      <div class="no">/02</div>
-      <div class="meter"><i class="on"></i><i class="on"></i><i></i><i></i></div>
-      <div>
-        <h3>Solide Anwendung</h3>
-        <p>Ein Chatfenster läuft schon mit, aber ungeordnet. Wir machen daraus verlässliche Abläufe, die auch morgen noch dasselbe Ergebnis liefern.</p>
-      </div>
-    </div>
-
-    <div class="lvl-row lv3 rv" data-d="2">
-      <div class="no">/03</div>
-      <div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
-      <div>
-        <h3>Fortgeschritten</h3>
-        <p>Eigene Automatisierungen, Agenten, Anbindung an bestehende Systeme. Hier geht es um Architektur, Kosten und darum, was in Produktion trägt.</p>
-      </div>
-    </div>
-
-    <div class="lvl-row lv4 rv" data-d="3">
-      <div class="bolts" aria-hidden="true">
-        <svg class="bolt" style="left:-6px;top:-18px" viewBox="0 0 30 52"><path d="M22 1 L9 22 L19 25 L7 51"/></svg>
-        <svg class="bolt" style="left:15%;bottom:-20px" viewBox="0 0 30 52"><path d="M12 2 L26 20 L15 24 L28 50"/></svg>
-        <svg class="bolt" style="left:41%;top:-22px" viewBox="0 0 30 52"><path d="M18 0 L6 18 L16 22 L4 44"/></svg>
-        <svg class="bolt" style="right:26%;bottom:-18px" viewBox="0 0 30 52"><path d="M14 4 L28 22 L17 26 L30 50"/></svg>
-        <svg class="bolt" style="right:9%;top:-20px" viewBox="0 0 30 52"><path d="M20 2 L10 20 L20 23 L9 48"/></svg>
-        <svg class="bolt" style="right:-8px;bottom:-16px" viewBox="0 0 30 52"><path d="M16 3 L4 21 L14 25 L3 52"/></svg>
-      </div>
-      <div class="no">/04</div>
-      <div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
-      <div>
-        <h3>Tony Stark</h3>
-        <p>Sie sind selbst weit vorn. Dann reden wir über das, wofür es noch keine Anleitung gibt — und ich bringe mit, was bei mir schon läuft.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ARBEITEN ═══ -->
-
-<section class="wrap inv" id="webinar" data-chapter="06 — Webinar">
-  <div class="sec-head">
-    <div class="eyebrow rv"><em>06</em> — <span class="scram">Live</span></div>
-    <h2 class="split">Das nächste Webinar.</h2>
-  </div>
-
-  <div class="web-card rv">
-    <div>
-      <div class="eyebrow"><span class="scram">Kostenlos · Online · Deutsch</span></div>
-      <h3>KI im Unternehmen: was 2026 wirklich funktioniert</h3>
-      <p>Kein Hype-Vortrag. Die Werkzeuge, die heute im Einsatz sind — und der Weg zu Ergebnissen in 90 Tagen.</p>
-
-      <div class="acc" id="acc">
-        <div class="it open">
-          <div class="hd"><span class="n">01</span><span class="t">Der ehrliche Stand</span><i>+</i></div>
-          <div class="bd"><p>Was Sprachmodelle 2026 zuverlässig können — und wo sie reproduzierbar scheitern.</p></div>
-        </div>
-        <div class="it">
-          <div class="hd"><span class="n">02</span><span class="t">Agenten im Tagesgeschäft</span><i>+</i></div>
-          <div class="bd"><p>Wie aus einem Chatfenster ein Prozess wird, der ohne Zwischenschritte durchläuft.</p></div>
-        </div>
-        <div class="it">
-          <div class="hd"><span class="n">03</span><span class="t">Drei Fallbeispiele</span><i>+</i></div>
-          <div class="bd"><p>Aus eigenen Projekten: was funktioniert hat, was ich verworfen habe, was es gekostet hat.</p></div>
-        </div>
-        <div class="it">
-          <div class="hd"><span class="n">04</span><span class="t">Ihre 90-Tage-Roadmap</span><i>+</i></div>
-          <div class="bd"><p>Eine Vorlage zum Mitnehmen: erste Woche, erster Monat, erstes Quartal.</p></div>
-        </div>
-        <div class="it">
-          <div class="hd"><span class="n">05</span><span class="t">Fragerunde</span><i>+</i></div>
-          <div class="bd"><p>Offen, ohne Zeitdruck. Gern vorab per Mail eingereichte Fragen.</p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="web-side">
-      <div>
-        <div class="eyebrow">Termin</div>
-        <p style="font-size:18px;font-weight:700;font-stretch:110%;letter-spacing:-.03em;margin-top:7px" id="webdate">Datum folgt</p>
-        <div class="count" style="margin-top:24px">
-          <div><b id="cd-d">--</b><small>Tage</small></div>
-          <div><b id="cd-h">--</b><small>Std</small></div>
-          <div><b id="cd-m">--</b><small>Min</small></div>
-          <div><b id="cd-s">--</b><small>Sek</small></div>
-        </div>
-      </div>
-      <a class="btn cfill" href="funnel.html?intent=webinar">
-        <span>Platz sichern</span>
-        <svg width="17" height="12" viewBox="0 0 17 12" fill="none"><path d="M11 1l5 5-5 5M16 6H0" stroke="currentColor" stroke-width="1.4"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PROFIL ═══ -->
-
-<section class="cta wrap" id="kontakt" data-chapter="07 — Kontakt">
-  <div class="eyebrow rv"><em>07</em> — <span class="scram">Kontakt</span></div>
+<section class="cta wrap" id="kontakt">
+  <div class="eyebrow rv"><em>04</em> — Kontakt</div>
   <h2 class="rv" data-d="1" style="margin-top:20px">Reden wir<br>über <span class="ital">Ihren</span><br>Fall.</h2>
-  <p class="cta-lead rv" data-d="2">Zwei Wege hinein. In beiden Fällen ordnen Sie sich in wenigen Schritten selbst ein — danach weiß ich vorab, worum es geht, und wir verlieren im Gespräch keine Zeit.</p>
+  <p class="cta-lead rv" data-d="2">Erst der Fragebogen, dann das Gespräch. So verlieren wir keine der dreißig Minuten mit Aufwärmen.</p>
 
   <div class="entries rv" data-d="3">
-    <a class="entry" href="funnel.html?intent=webinar">
+    <a class="entry" href="funnel.html?intent=beratung">
       <span class="no">/01</span>
-      <span class="et">Interesse am Webinar</span>
-      <span class="ed">Kostenlos, online. Sie bekommen den Zugang und die Aufzeichnung.</span>
-      <span class="ea">Anmeldung starten →</span>
+      <span class="et">Beratung anfragen</span>
+      <span class="ed">Drei Minuten Fragebogen, danach Terminvorschläge von mir.</span>
+      <span class="ea">Los geht's →</span>
     </a>
-    <a class="entry" href="beratung.html">
+    <a class="entry" href="index.html#webinar">
       <span class="no">/02</span>
-      <span class="et">Persönliche Beratung</span>
-      <span class="ed">Webinare, Einzelstunden oder durchgehende Begleitung — Leistungen, Ablauf und Team.</span>
-      <span class="ea">Ansehen →</span>
+      <span class="et">Erst das Webinar</span>
+      <span class="ed">Kostenlos am 8. September. Reinhören, bevor Sie etwas buchen.</span>
+      <span class="ea">Zum Webinar →</span>
     </a>
   </div>
 
-  <p class="cta-alt rv" data-d="4">Lieber direkt schreiben? <a href="mailto:jen@preisser.de?subject=Anfrage">jen@preisser.de</a></p>
-
-  <div class="cta-meta rv" data-d="3">
-    <div><b>Beratung</b>Strategie · Automatisierung · Produkt</div>
-    <div><b>Format</b>Remote · Workshop · Projekt</div>
-    <div><b>Studio</b><a href="https://chasingdreamsinteractive.com" target="_blank" rel="noopener">Chasing Dreams Interactive →</a></div>
-    <div><b>Erstgespräch</b>30 Minuten, unverbindlich</div>
-  </div>
+  <p class="cta-alt rv" data-d="4">Lieber direkt? <a href="mailto:kontakt@jenpreisser-consulting.de?subject=Beratungsanfrage">kontakt@jenpreisser-consulting.de</a></p>
 </section>
-
-
 
 <footer>
   <span>© <span id="yr"></span> Jen Preisser Consulting</span>
   <span class="mono" style="opacity:.55">Berlin <span id="clock2">—:—</span></span>
-  <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span>
 </footer>
 
 <script>
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),lerp=(a,b,t)=>a+(b-a)*t;
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 $('#yr').textContent=new Date().getFullYear();
 
-/* ── MODUS: hell / dunkel ──
-   Gedreht werden nur die Rollen-Tokens auf <html>. Dunkel ist die
-   Grundstellung; die Wahl überlebt den Reload. */
+/* Modus — teilt sich den Speicher mit der Startseite */
 (function(){
-  const root=document.documentElement,btn=$('#theme'),KEY='jp-theme';
-  function apply(mode,animate){
-    if(animate){
-      root.classList.add('theming');
-      clearTimeout(root.__thm);root.__thm=setTimeout(()=>root.classList.remove('theming'),520);
-    }
-    if(mode==='light')root.dataset.theme='light';else delete root.dataset.theme;
+  const root=document.documentElement, btn=$('#theme'), KEY='jp-theme';
+  const apply=(mode,save)=>{
+    if(mode==='light')root.dataset.theme='light'; else delete root.dataset.theme;
     btn.setAttribute('aria-pressed',mode==='light');
     btn.setAttribute('aria-label',mode==='light'?'Dunklen Modus einschalten':'Hellen Modus einschalten');
-    /* Navigationsfarbe hängt am Untergrund — nach dem Dreh neu bestimmen */
-    if(window.__navFrame)window.__navFrame();
-  }
-  let saved=null;try{saved=localStorage.getItem(KEY)}catch(e){}
-  apply(saved==='dark'?'dark':'light',false);
-  btn.addEventListener('click',()=>{
-    const next=root.dataset.theme==='light'?'dark':'light';
-    apply(next,true);
-    try{localStorage.setItem(KEY,next)}catch(e){}
-  });
-})();
-
-/* ── LADESCHIRM ── */
-(function(){
-  const pre=$('#pre'),pct=$('#pct'),bar=$('#pbar');
-  document.documentElement.classList.add('lock');
-  /* Pro Frame statt in Sprüngen, über eine feste Dauer — und am Ende
-     kurz auf 100 stehen bleiben, bevor der Vorhang aufgeht. */
-  const DUR=1900,HOLD=460,t0=performance.now();
-  const ease=t=>1-Math.pow(1-t,2.2);
-  let done=false;
-  const finish=()=>{
-    if(done)return;done=true;
-    pct.textContent='100';bar.style.transform='scaleX(1)';
-    pre.classList.add('gone');document.documentElement.classList.remove('lock');
-    document.body.classList.add('go');boot();
+    if(save)try{localStorage.setItem(KEY,mode)}catch(e){}
   };
-  (function tick(now){
-    if(done)return;
-    const t=clamp((now-t0)/DUR,0,1),v=ease(t);
-    pct.textContent=String(Math.round(v*100)).padStart(2,'0');
-    bar.style.transform=`scaleX(${v})`;
-    if(t<1)return requestAnimationFrame(tick);
-    pct.textContent='100';bar.style.transform='scaleX(1)';
-    setTimeout(finish,HOLD);
-  })(t0);
-  /* Notausstieg: im Hintergrund-Tab pausiert requestAnimationFrame —
-     ohne das hier bliebe der Vorhang dauerhaft zu. */
-  setTimeout(finish,DUR+HOLD+1500);
+  let saved=null; try{saved=localStorage.getItem(KEY)}catch(e){}
+  apply(saved==='dark'?'dark':'light',false);
+  btn.addEventListener('click',()=>apply(root.dataset.theme==='light'?'dark':'light',true));
 })();
 
-/* ── CURSOR ── */
+/* Uhr */
 (function(){
-  const cur=$('#cur'),lbl=cur.querySelector('span');
-  let cx=innerWidth/2,cy=innerHeight/2,tx=cx,ty=cy;
-  addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY},{passive:true});
-  (function loop(){cx=lerp(cx,tx,.19);cy=lerp(cy,ty,.19);
-    cur.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
-  const label=el=>el.closest('.rail')?'Ziehen':(el.tagName==='A'||el.tagName==='BUTTON'?'Klick':'Mehr');
-  $$('a,button,.pcard,.acc .it').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{lbl.textContent=label(el);cur.classList.add('big')});
+  const f=new Intl.DateTimeFormat('de-DE',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Berlin'});
+  const t=()=>{const s=f.format(new Date());$('#clock').textContent='Berlin '+s;$('#clock2').textContent=s};
+  t();setInterval(t,20000);
+})();
+
+/* Kopfzeile + Fortschritt */
+let last=0;
+addEventListener('scroll',()=>{
+  const y=scrollY, nav=$('#nav');
+  nav.classList.toggle('stuck',y>60);
+  nav.classList.toggle('hide',y>last&&y>320);
+  last=y;
+  const h=document.body.scrollHeight-innerHeight;
+  $('#prog').style.width=(h>0?(y/h)*100:0)+'%';
+},{passive:true});
+
+/* Einblenden */
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+}),{threshold:.12});
+$$('.rv').forEach(el=>io.observe(el));
+
+/* Zeiger */
+(function(){
+  const cur=$('#cur'); if(!cur)return;
+  let cx=innerWidth/2, cy=innerHeight/2, tx=cx, ty=cy;
+  addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY});
+  (function loop(){cx+=(tx-cx)*.19;cy+=(ty-cy)*.19;
+    cur.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`;
+    requestAnimationFrame(loop)})();
+  $$('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('big'));
     el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
   });
 })();
 
-/* ── NAV / FORTSCHRITT / KAPITEL ── */
-(function(){
-  const nav=$('#nav'),prog=$('#prog'),ch=$('#chapter'),chtxt=$('#chtxt');
-  let last=0;const zones=$$('[data-chapter]');
-  function frame(){
-    const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;
-    prog.style.width=(clamp(y/Math.max(1,max),0,1)*100)+'%';
-    nav.classList.toggle('stuck',y>60);
-    nav.classList.toggle('hide',y>last+6&&y>innerHeight*.9);
-    last=y;
-    /* Navigationsfarbe folgt dem Untergrund: helle Sektionen kippen sie auf Schwarz */
-    const probe=document.elementFromPoint(innerWidth-40,26);
-    nav.classList.toggle('on-light',!!(probe&&probe.closest('.inv,.ticker')));
-    const mid=y+innerHeight*.42;let act=zones[0];
-    zones.forEach(z=>{if(mid>=z.getBoundingClientRect().top+y)act=z});
-    if(act&&act.dataset.chapter!==chtxt.textContent)chtxt.textContent=act.dataset.chapter||'';
-    ch.classList.toggle('on',y>innerHeight*.6);
-  }
-  addEventListener('scroll',frame,{passive:true});
-  addEventListener('resize',frame);
-  window.__navFrame=frame;
-})();
-
-/* ══ E3 DECODE ══ */
-const POOL='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&/<:·';
-function decode(el,dur=620,text){
-  if(reduce){if(text!=null)el.textContent=text;return}
-  const full=text!=null?text:(el.dataset.full||el.textContent);
-  el.dataset.full=full;
-  if(el.__t)cancelAnimationFrame(el.__t);
-  const start=performance.now();
-  const step=now=>{
-    const p=clamp((now-start)/dur,0,1);
-    const keep=p*full.length;
-    el.textContent=full.split('').map((c,i)=>{
-      if(i<keep||c===' ')return c;
-      return POOL[Math.floor(Math.random()*POOL.length)];
-    }).join('');
-    if(p<1)el.__t=requestAnimationFrame(step);else el.textContent=full;
-  };
-  el.__t=requestAnimationFrame(step);
-}
-/* Navigationsbreiten festnageln, damit das Menü beim Decoden nicht springt.
-   Die Manifest-Zeilen brauchen das nicht: sie sind volle Blöcke mit nowrap,
-   da kann nichts umbrechen — eine Breitensperre hatte sie nur auf 0 gesetzt,
-   wenn sie vor dem ersten Layout gemessen wurde. */
-function lockWidths(){
-  /* Pille oben: sonst zappelt ihre Breite während des Decodens.
-     Die Navigation decodiert absichtlich NICHT — dort reicht die rote Pille. */
-  $$('.badge .scram').forEach(el=>{
-    const w=Math.ceil(el.getBoundingClientRect().width);
-    if(w>0&&!el.style.minWidth)el.style.minWidth=w+'px';
-  });
-}
-
-/* ══ E4 WORT-KARUSSELL ══ */
-(function(){
-  const slot=$('#slot');if(!slot)return;
-  const ul=slot.querySelector('ul'),items=[...ul.children];let i=0;
-  const STEP=1.38;   /* Wortbox 1em + Lücke .38em, siehe .slot li */
-  const fit=()=>{slot.style.width=items[i].getBoundingClientRect().width+'px'};
-  const go=()=>{i=(i+1)%items.length;ul.style.transform=`translateY(-${(i*STEP).toFixed(3)}em)`;fit()};
-  const start=()=>{fit();lockWidths();if(!reduce)setInterval(go,2600)};
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(start);else start();
-  addEventListener('resize',fit);
-})();
-
-/* ══ E9 KREIS-FILL ══ */
-$$('.cfill').forEach(b=>{
-  b.addEventListener('mouseenter',e=>{
-    const r=b.getBoundingClientRect();
-    b.style.setProperty('--fx',(e.clientX-r.left)+'px');
-    b.style.setProperty('--fy',(e.clientY-r.top)+'px');
-  });
-});
-
-/* ══ E12 AKKORDEON ══ */
-(function(){
-  const items=$$('#acc .it');
-  items.forEach(it=>it.addEventListener('click',()=>{
-    const was=it.classList.contains('open');
-    items.forEach(o=>o.classList.remove('open'));
-    if(!was)it.classList.add('open');
-  }));
-})();
-
-/* ══ LEISTUNGEN — Tafeln ══ */
-(function(){
-  const ways=$$('#ways .way'),cur=$('#waycur');
-  let auto=null,touched=false;
-  const activate=i=>{
-    ways.forEach((w,j)=>w.classList.toggle('act',i===j));
-    cur.textContent=String(i+1).padStart(2,'0');
-  };
-  ways.forEach((w,i)=>{
-    const open=()=>{touched=true;if(auto)clearInterval(auto);activate(i)};
-    w.addEventListener('mouseenter',open);
-    w.addEventListener('click',open);
-  });
-  activate(0);
-  new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting&&!touched&&!auto&&!reduce){
-      let i=0;auto=setInterval(()=>{
-        if(touched)return clearInterval(auto);
-        i=(i+1)%ways.length;activate(i);
-      },3200);
-    }
-  }),{threshold:.35}).observe($('#ways'));
-})();
-
-/* ── AUFBAU ── */
-function boot(){
-  $$('.split').forEach(el=>{
-    if(el.dataset.done)return;el.dataset.done=1;
-    const tmp=document.createElement('div');tmp.innerHTML=el.innerHTML;
-    const build=node=>{
-      const out=document.createDocumentFragment();
-      node.childNodes.forEach(c=>{
-        if(c.nodeType===3){
-          c.textContent.split(/(\s+)/).forEach(tok=>{
-            if(!tok.trim()){out.appendChild(document.createTextNode(' '));return}
-            const w=document.createElement('span');w.className='w';
-            const i=document.createElement('i');i.textContent=tok;w.appendChild(i);out.appendChild(w);
-          });
-        }else if(c.nodeType===1){const cl=c.cloneNode(false);cl.appendChild(build(c));out.appendChild(cl)}
-      });return out;
-    };
-    el.innerHTML='';el.appendChild(build(tmp));
-    let d=0;el.querySelectorAll('.w>i').forEach(i=>{i.style.transitionDelay=(d+=0.032).toFixed(3)+'s'});
-  });
-
-  const io=new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
-  }),{threshold:.14});
-  $$('.rv,.split,#rail').forEach(el=>io.observe(el));
-
-  const rail=$('#rail');
-  new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting)setTimeout(()=>rail.classList.add('tiltable'),1500);
-  }),{threshold:.2}).observe(rail);
-
-  const dio=new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting){decode(e.target,e.target.classList.contains('dec-num')?780:620);dio.unobserve(e.target)}
-  }),{threshold:.85});
-  $$('.scram,.dec-num').forEach(el=>dio.observe(el));
-
-  const cio=new IntersectionObserver(es=>es.forEach(e=>{
-    if(!e.isIntersecting)return;cio.unobserve(e.target);
-    $$('#claim .cl').forEach((l,i)=>setTimeout(()=>decode(l,760),i*230));
-  }),{threshold:.4});
-  cio.observe($('#claim'));
-
-  lockWidths();          /* zweiter Anlauf: hier steht das Layout sicher */
-  window.__navFrame();startMesh();
-}
-
-/* ── TICKER ── */
-(function(){
-  const track=$('#track'),base=track.innerHTML;
-  track.innerHTML=base+base+base+base;
-  let x=0,vel=0,lastY=scrollY;
-  addEventListener('scroll',()=>{vel=scrollY-lastY;lastY=scrollY},{passive:true});
-  (function loop(){
-    const w=track.scrollWidth/4;
-    vel=lerp(vel,0,.06);x-=(.65+Math.abs(vel)*.25);
-    if(-x>=w)x+=w;
-    track.style.transform=`translateX(${x}px) skewX(${clamp(-vel*.08,-5,5)}deg)`;
-    requestAnimationFrame(loop);
-  })();
-})();
-
-/* ══ ARBEITEN — Drag-Rail + Kippen ══ */
-(function(){
-  const rail=$('#rail'),row=$('#railrow'),bar=$('#railbar'),cur=$('#railcur');
-  const cards=$$('.pcard');
-  let x=0,target=0,down=false,startX=0,startTarget=0,vel=0,lastX=0,moved=0;
-  const min=()=>{
-    const cs=getComputedStyle(rail);
-    const inner=rail.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
-    return Math.min(0,inner-row.scrollWidth);
-  };
-  rail.addEventListener('pointerdown',e=>{
-    down=true;moved=0;rail.classList.add('grabbing');
-    startX=e.clientX;lastX=e.clientX;startTarget=target;rail.setPointerCapture(e.pointerId);
-  });
-  rail.addEventListener('pointermove',e=>{
-    if(!down)return;
-    const d=e.clientX-startX;moved=Math.abs(d);
-    target=clamp(startTarget+d,min(),0);
-    vel=e.clientX-lastX;lastX=e.clientX;
-  });
-  const release=()=>{
-    if(!down)return;
-    down=false;rail.classList.remove('grabbing');
-    target=clamp(target+vel*7,min(),0);
-  };
-  rail.addEventListener('pointerup',release);
-  rail.addEventListener('pointercancel',release);
-  rail.addEventListener('wheel',e=>{
-    if(Math.abs(e.deltaX)>Math.abs(e.deltaY)){e.preventDefault();target=clamp(target-e.deltaX,min(),0)}
-  },{passive:false});
-  (function loop(){
-    x=lerp(x,target,.09);
-    row.style.transform=`translate3d(${x}px,0,0)`;
-    const p=min()<0?x/min():0;
-    bar.style.width=clamp(22+p*78,22,100)+'%';
-    cur.textContent=String(clamp(Math.round(p*(cards.length-1))+1,1,cards.length)).padStart(2,'0');
-    requestAnimationFrame(loop);
-  })();
-  cards.forEach(card=>{
-    card.addEventListener('mousemove',e=>{
-      if(down||!rail.classList.contains('tiltable'))return;
-      const r=card.getBoundingClientRect();
-      const px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
-      card.style.transform=`perspective(1200px) rotateY(${(px-.5)*17}deg) rotateX(${-(py-.5)*17}deg) translateZ(14px) scale(1.02)`;
-      card.style.setProperty('--sx',px*100+'%');card.style.setProperty('--sy',py*100+'%');
-    });
-    card.addEventListener('mouseleave',()=>{card.style.transform=''});
-  });
-  addEventListener('pointerup',()=>{if(moved>4)cards.forEach(c=>c.style.transform='')});
-})();
-
-/* ══ HERO — PUNKTFELD ══
-   Ruhiges Raster feiner Punkte. Unter dem Cursor leuchten sie auf,
-   wachsen und kippen nach Vermillion; ein Klick schickt einen Ring
-   nach außen, der die Punkte auf seinem Weg kurz aufblitzen lässt. */
-let startMesh=()=>{};
-(function(){
-  const cv=$('#mesh');if(!cv||reduce)return;
-  const ctx=cv.getContext('2d',{alpha:true});
-  const hero=$('#top');
-  let W=0,H=0,dpr=1,gap=0,dots=[],run=false,t0=performance.now();
-  let mx=-1e5,my=-1e5,cx=-1e5,cy=-1e5,pulses=[];
-
-  const GLOW=190;      /* Leuchtradius um den Cursor */
-  const R=1.15;        /* Grundradius eines Punkts */
-  const SPEED=560;     /* Ausbreitung der Klick-Welle in px/s */
-  const BAND=64;       /* Dicke der Wellenfront */
-  const LIFE=1.6;      /* Lebensdauer einer Welle in Sekunden */
-
-  function build(){
-    dpr=Math.min(2,devicePixelRatio||1);
-    W=hero.clientWidth;H=hero.clientHeight;
-    cv.width=W*dpr;cv.height=H*dpr;
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    gap=W<700?26:34;
-    dots=[];
-    const ox=(W%gap)/2, oy=(H%gap)/2;
-    for(let y=oy+gap/2;y<H;y+=gap)for(let x=ox+gap/2;x<W;x+=gap)dots.push({x,y});
-  }
-
-  /* Punktfarbe aus dem Token — nur bei Moduswechsel neu ausgelesen */
-  let dotCol='',dotKey=null;
-  function coldColor(){
-    const k=document.documentElement.dataset.theme||'dark';
-    if(k!==dotKey){
-      dotKey=k;
-      dotCol='rgba('+getComputedStyle(document.documentElement)
-        .getPropertyValue('--white-rgb').trim()+',.16)';
-    }
-    return dotCol;
-  }
-  function draw(now){
-    const t=(now-t0)*.001;
-    pulses=pulses.filter(p=>t-p.t<LIFE);
-    /* Cursor nachziehen, damit das Leuchten weich folgt */
-    if(mx>-1e4){if(cx<-1e4){cx=mx;cy=my}else{cx=lerp(cx,mx,.14);cy=lerp(cy,my,.14)}}
-    else cx=cy=-1e5;
-
-    ctx.clearRect(0,0,W,H);
-
-    const cold=new Path2D();
-    const hot=[];
-
-    for(const d of dots){
-      let v=0;
-
-      /* Cursor-Leuchten, quadratisch abfallend */
-      if(cx>-1e4){
-        const dx=d.x-cx,dy=d.y-cy,dist=Math.hypot(dx,dy);
-        if(dist<GLOW){const f=1-dist/GLOW;v+=f*f}
-      }
-
-      /* Wellenfront: Gauß um den wachsenden Ringradius */
-      for(const p of pulses){
-        const age=t-p.t;
-        const rad=age*SPEED;
-        const decay=Math.max(0,1-age/LIFE);
-        if(decay<=0)continue;
-        const off=Math.hypot(d.x-p.x,d.y-p.y)-rad;
-        v+=Math.exp(-(off*off)/(2*BAND*BAND))*decay;
-      }
-
-      v=clamp(v,0,1);
-      if(v<.04){
-        /* ruhende Punkte in einem Zug zeichnen */
-        cold.moveTo(d.x+R,d.y);
-        cold.arc(d.x,d.y,R,0,6.2832);
-      }else{
-        hot.push({x:d.x,y:d.y,v});
-      }
-    }
-
-    ctx.fillStyle=coldColor();
-    ctx.fill(cold);
-
-    /* aktive Punkte einzeln: größer, orange, mit Schein */
-    for(const h of hot){
-      const rad=R+h.v*2.4;
-      ctx.beginPath();
-      ctx.arc(h.x,h.y,rad,0,6.2832);
-      ctx.fillStyle=`rgba(255,59,31,${(.22+h.v*.78).toFixed(3)})`;
-      ctx.shadowColor='rgba(255,59,31,.85)';
-      ctx.shadowBlur=h.v*16;
-      ctx.fill();
-    }
-    ctx.shadowBlur=0;
-  }
-  function loop(now){if(run)draw(now);requestAnimationFrame(loop)}
-
-  hero.addEventListener('pointermove',e=>{
-    const r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;
-  });
-  hero.addEventListener('pointerleave',()=>{mx=-1e5;my=-1e5});
-  hero.addEventListener('pointerdown',e=>{
-    const r=hero.getBoundingClientRect();
-    pulses.push({x:e.clientX-r.left,y:e.clientY-r.top,t:(performance.now()-t0)*.001});
-    if(pulses.length>4)pulses.shift();
-  });
-  addEventListener('resize',build);
-  startMesh=()=>{
-    build();
-    new IntersectionObserver(es=>es.forEach(e=>{run=e.isIntersecting}),{threshold:.02}).observe(hero);
-    requestAnimationFrame(loop);
-  };
-})();
-
-/* ── UHR ── */
-(function(){
-  const f=new Intl.DateTimeFormat('de-DE',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Berlin'});
-  const tick=()=>{const t=f.format(new Date());$('#clock').textContent='Berlin '+t;$('#clock2').textContent=t};
-  tick();setInterval(tick,10000);
-})();
-
-/* ── COUNTDOWN — Termin hier setzen ── */
-const TARGET=new Date('2026-09-08T18:00:00+02:00');
-(function(){
-  const f=new Intl.DateTimeFormat('de-DE',{weekday:'long',day:'2-digit',month:'long',hour:'2-digit',minute:'2-digit',timeZone:'Europe/Berlin'});
-  $('#webdate').textContent=f.format(TARGET)+' Uhr';
-  /* Pille oben zieht ihr Datum aus demselben Termin */
-  const short=new Intl.DateTimeFormat('de-DE',{day:'numeric',month:'long',timeZone:'Europe/Berlin'});
-  $('#badgedate').textContent=short.format(TARGET);
-  /* Leiste unter dem Hero zieht denselben Termin; ist der Termin vorbei, verschwindet sie */
-  const bar=$('#wbar');
-  if(TARGET-Date.now()<=0){bar.remove();}
-  else{$('#wbardate').textContent=short.format(TARGET);}
-  const pad=n=>String(Math.max(0,n)).padStart(2,'0');
-  const tick=()=>{const d=TARGET-Date.now();
-    if(bar&&bar.isConnected){
-      const dd=Math.floor(d/864e5),hh=Math.floor(d/36e5)%24;
-      $('#wbarcd').textContent = dd>0 ? dd+(dd===1?' Tag':' Tage') : hh+' Std';
-    }
-    $('#cd-d').textContent=pad(Math.floor(d/864e5));
-    $('#cd-h').textContent=pad(Math.floor(d/36e5)%24);
-    $('#cd-m').textContent=pad(Math.floor(d/6e4)%60);
-    $('#cd-s').textContent=pad(Math.floor(d/1e3)%60)};
-  tick();setInterval(tick,1000);
-})();
-
-$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-  const t=document.querySelector(a.getAttribute('href'));if(!t)return;
-  e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});
+/* Kreis-Fill folgt dem Eintrittspunkt */
+$$('.cfill').forEach(el=>el.addEventListener('mouseenter',e=>{
+  const r=el.getBoundingClientRect();
+  el.style.setProperty('--fx',(e.clientX-r.left)+'px');
+  el.style.setProperty('--fy',(e.clientY-r.top)+'px');
 }));
 </script>
 </body>
