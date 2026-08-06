@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Würfel-Logo — Varianten</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#08090B; --paper:#F4F3EF; --acc:#FF3B1F;
+  --bg:var(--paper); --fg:var(--ink);
+  --hair:rgba(8,9,11,.14);
+  --e:cubic-bezier(.19,1,.22,1);
+}
+:root[data-theme="dark"]{--bg:var(--ink);--fg:var(--paper);--hair:rgba(244,243,239,.16)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:'Inter Tight',system-ui,sans-serif;font-weight:400;padding:48px clamp(20px,5vw,72px);transition:background .5s var(--e),color .5s var(--e)}
+h1{font-weight:800;font-stretch:112%;letter-spacing:-.04em;font-size:clamp(28px,4vw,46px);line-height:1}
+.eyebrow{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.55}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:44px}
+button{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:inherit;border:1px solid currentColor;border-radius:100px;padding:9px 18px;cursor:pointer;transition:background .35s var(--e),color .35s var(--e)}
+button:hover{background:var(--acc);border-color:var(--acc);color:#fff}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair)}
+.card{background:var(--bg);padding:30px 26px 26px;display:flex;flex-direction:column;gap:22px}
+.card h2{font-size:17px;font-weight:600;letter-spacing:-.02em}
+.card p{font-size:13px;opacity:.6;line-height:1.5;max-width:38ch}
+.stage{display:flex;align-items:flex-end;gap:26px;padding:26px 0;border-block:1px solid var(--hair);min-height:120px}
+.stage svg{display:block;color:var(--acc)}
+.s-xl{width:72px}   .s-l{width:44px}   .s-m{width:26px}  .s-s{width:18px}
+.lockup{display:flex;align-items:center;gap:11px;font-weight:800;font-stretch:112%;letter-spacing:-.035em;font-size:16px;white-space:nowrap}
+.lockup .sub{opacity:.45;font-weight:400}
+.lockup svg{width:24px;flex:none}
+.spin{transition:transform .7s var(--e)}
+.card:hover .spin{transform:rotate(120deg)}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div>
+    <div class="eyebrow">Logo — Würfel mit Augen</div>
+    <h1 style="margin-top:10px">Vier Varianten.</h1>
+  </div>
+  <button id="tgl" type="button">Hell / Dunkel</button>
+</div>
+
+<div class="grid">
+
+  <!-- A -->
+  <div class="card">
+    <div>
+      <div class="eyebrow">Variante A</div>
+      <h2 style="margin-top:6px">Ein Auge pro Fläche</h2>
+    </div>
+    <div class="stage">
+      <svg class="s-xl spin" viewBox="0 0 32 36" fill="none" aria-label="Würfel-Logo A"><g stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><g fill="currentColor"><circle cx="16" cy="10" r="1.9"/><circle cx="23" cy="22" r="1.9"/><circle cx="9" cy="22" r="1.9"/></g></svg>
+      <svg class="s-l" viewBox="0 0 32 36" fill="none"><g stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><g fill="currentColor"><circle cx="16" cy="10" r="1.9"/><circle cx="23" cy="22" r="1.9"/><circle cx="9" cy="22" r="1.9"/></g></svg>
+      <svg class="s-m" viewBox="0 0 32 36" fill="none"><g stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><g fill="currentColor"><circle cx="16" cy="10" r="2.1"/><circle cx="23" cy="22" r="2.1"/><circle cx="9" cy="22" r="2.1"/></g></svg>
+      <svg class="s-s" viewBox="0 0 32 36" fill="none"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><g fill="currentColor"><circle cx="16" cy="10" r="2.3"/><circle cx="23" cy="22" r="2.3"/><circle cx="9" cy="22" r="2.3"/></g></svg>
+    </div>
+    <p>Drei Flächen, drei Augen. Bleibt bis 16 Pixel lesbar und ist die einzige Variante, die als Favicon funktioniert. Nebenbei eine brauchbare Lesart: dieselbe Sache von drei Seiten betrachtet.</p>
+    <div class="lockup"><svg viewBox="0 0 32 36" fill="none"><g stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" style="color:var(--acc)"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><g fill="var(--acc)"><circle cx="16" cy="10" r="2.1"/><circle cx="23" cy="22" r="2.1"/><circle cx="9" cy="22" r="2.1"/></g></svg>Jen Preisser <span class="sub">Consulting</span></div>
+  </div>
+
+  <!-- B -->
+  <div class="card">
+    <div>
+      <div class="eyebrow">Variante B</div>
+      <h2 style="margin-top:6px">Echter Würfel — 1, 2, 3</h2>
+    </div>
+    <div class="stage">
+      <svg class="s-xl spin" viewBox="0 0 32 36" fill="none" aria-label="Würfel-Logo B"><g stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><g fill="currentColor"><circle cx="16" cy="10" r="1.7"/><circle cx="20.6" cy="26.2" r="1.7"/><circle cx="25.4" cy="17.8" r="1.7"/><circle cx="9" cy="22" r="1.7"/><circle cx="11.7" cy="26.6" r="1.7"/><circle cx="6.3" cy="17.4" r="1.7"/></g></svg>
+      <svg class="s-l" viewBox="0 0 32 36" fill="none"><g stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><g fill="currentColor"><circle cx="16" cy="10" r="1.7"/><circle cx="20.6" cy="26.2" r="1.7"/><circle cx="25.4" cy="17.8" r="1.7"/><circle cx="9" cy="22" r="1.7"/><circle cx="11.7" cy="26.6" r="1.7"/><circle cx="6.3" cy="17.4" r="1.7"/></g></svg>
+      <svg class="s-m" viewBox="0 0 32 36" fill="none"><g stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><g fill="currentColor"><circle cx="16" cy="10" r="1.9"/><circle cx="20.6" cy="26.2" r="1.9"/><circle cx="25.4" cy="17.8" r="1.9"/><circle cx="9" cy="22" r="1.9"/><circle cx="11.7" cy="26.6" r="1.9"/><circle cx="6.3" cy="17.4" r="1.9"/></g></svg>
+      <svg class="s-s" viewBox="0 0 32 36" fill="none"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><g fill="currentColor"><circle cx="16" cy="10" r="2"/><circle cx="20.6" cy="26.2" r="2"/><circle cx="25.4" cy="17.8" r="2"/><circle cx="9" cy="22" r="2"/><circle cx="11.7" cy="26.6" r="2"/><circle cx="6.3" cy="17.4" r="2"/></g></svg>
+    </div>
+    <p>Ein tatsächlicher Würfel in der Eckansicht: oben die Eins, rechts die Zwei, links die Drei. Groß am schönsten. Ab etwa 24 Pixel laufen die Augen ineinander — als Favicon ungeeignet.</p>
+    <div class="lockup"><svg viewBox="0 0 32 36" fill="none"><g stroke="var(--acc)" stroke-width="1.9" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><g fill="var(--acc)"><circle cx="16" cy="10" r="1.9"/><circle cx="20.6" cy="26.2" r="1.9"/><circle cx="25.4" cy="17.8" r="1.9"/><circle cx="9" cy="22" r="1.9"/><circle cx="11.7" cy="26.6" r="1.9"/><circle cx="6.3" cy="17.4" r="1.9"/></g></svg>Jen Preisser <span class="sub">Consulting</span></div>
+  </div>
+
+  <!-- C -->
+  <div class="card">
+    <div>
+      <div class="eyebrow">Variante C</div>
+      <h2 style="margin-top:6px">Das Auge im Inneren</h2>
+    </div>
+    <div class="stage">
+      <svg class="s-xl spin" viewBox="0 0 32 36" fill="none" aria-label="Würfel-Logo C"><g stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" opacity=".55"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><circle cx="16" cy="18" r="3.6" fill="currentColor"/></svg>
+      <svg class="s-l" viewBox="0 0 32 36" fill="none"><g stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" opacity=".55"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><circle cx="16" cy="18" r="3.6" fill="currentColor"/></svg>
+      <svg class="s-m" viewBox="0 0 32 36" fill="none"><g stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" opacity=".55"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><circle cx="16" cy="18" r="3.8" fill="currentColor"/></svg>
+      <svg class="s-s" viewBox="0 0 32 36" fill="none"><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" opacity=".55"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><circle cx="16" cy="18" r="4" fill="currentColor"/></svg>
+    </div>
+    <p>Ein einzelner Punkt im Zentrum, das Gitter tritt zurück. Falls Du mit „Augen drinnen“ wirklich innen gemeint hast. Der ruhigste Auftritt und am nächsten an der Referenz, die Dir gefallen hat.</p>
+    <div class="lockup"><svg viewBox="0 0 32 36" fill="none"><g stroke="var(--acc)" stroke-width="1.9" stroke-linejoin="round" opacity=".55"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g><circle cx="16" cy="18" r="3.8" fill="var(--acc)"/></svg>Jen Preisser <span class="sub">Consulting</span></div>
+  </div>
+
+  <!-- D -->
+  <div class="card">
+    <div>
+      <div class="eyebrow">Variante D</div>
+      <h2 style="margin-top:6px">Deckfläche gefüllt</h2>
+    </div>
+    <div class="stage">
+      <svg class="s-xl spin" viewBox="0 0 32 36" fill="none" aria-label="Würfel-Logo D"><path d="M16 2 30 10 16 18 2 10Z" fill="currentColor"/><g stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 18 30 10M16 18 2 10M16 18 16 34"/></g><circle cx="16" cy="10" r="1.9" fill="var(--bg)"/><g fill="currentColor"><circle cx="22" cy="24" r="1.9"/><circle cx="10" cy="24" r="1.9"/></g></svg>
+      <svg class="s-l" viewBox="0 0 32 36" fill="none"><path d="M16 2 30 10 16 18 2 10Z" fill="currentColor"/><g stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 18 30 10M16 18 2 10M16 18 16 34"/></g><circle cx="16" cy="10" r="1.9" fill="var(--bg)"/><g fill="currentColor"><circle cx="22" cy="24" r="1.9"/><circle cx="10" cy="24" r="1.9"/></g></svg>
+      <svg class="s-m" viewBox="0 0 32 36" fill="none"><path d="M16 2 30 10 16 18 2 10Z" fill="currentColor"/><g stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 18 30 10M16 18 2 10M16 18 16 34"/></g><circle cx="16" cy="10" r="2.1" fill="var(--bg)"/><g fill="currentColor"><circle cx="22" cy="24" r="2.1"/><circle cx="10" cy="24" r="2.1"/></g></svg>
+      <svg class="s-s" viewBox="0 0 32 36" fill="none"><path d="M16 2 30 10 16 18 2 10Z" fill="currentColor"/><g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 18 30 10M16 18 2 10M16 18 16 34"/></g><circle cx="16" cy="10" r="2.3" fill="var(--bg)"/><g fill="currentColor"><circle cx="22" cy="24" r="2.3"/><circle cx="10" cy="24" r="2.3"/></g></svg>
+    </div>
+    <p>Die obere Fläche massiv, das Auge darin ausgespart. Der kräftigste Auftritt und am besten sichtbar auf gedruckten Sachen oder kleinen Social-Kacheln. Etwas lauter als der Rest der Seite.</p>
+    <div class="lockup"><svg viewBox="0 0 32 36" fill="none"><path d="M16 2 30 10 16 18 2 10Z" fill="var(--acc)"/><g stroke="var(--acc)" stroke-width="1.9" stroke-linejoin="round"><path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 18 30 10M16 18 2 10M16 18 16 34"/></g><circle cx="16" cy="10" r="2.1" fill="var(--bg)"/><g fill="var(--acc)"><circle cx="22" cy="24" r="2.1"/><circle cx="10" cy="24" r="2.1"/></g></svg>Jen Preisser <span class="sub">Consulting</span></div>
+  </div>
+
+</div>
+
+<p style="margin-top:34px;font-size:13px;opacity:.55;max-width:60ch">Größen von links nach rechts: 72, 44, 26 und 18 Pixel. 26 ist die Navigationsgröße, 18 die Favicon-Größe. Mit der Maus über eine Karte fahren dreht den großen Würfel. Aktuell eingebaut ist Variante A.</p>
+
+<script>
+document.getElementById('tgl').addEventListener('click',()=>{
+  const r=document.documentElement;
+  r.dataset.theme = r.dataset.theme==='dark' ? 'light' : 'dark';
+});
+</script>
+</body>
+</html>

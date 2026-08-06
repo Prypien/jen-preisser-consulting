@@ -32,7 +32,10 @@
   --paper-2:#EAE8E1;
   --paper-3:#E3E1D9;
 
-  --acc:#FF3B1F;
+  /* Vermillion als fester Anker — --acc ist die Rolle und wird in der
+     Webinar-Sektion umdefiniert, der Anker bleibt dort greifbar. */
+  --vermillion:#FF3B1F;
+  --acc:var(--vermillion);
   --acc-deep:#B02310;
 
   /* Rollen — Dunkelmodus ist die Grundstellung */
@@ -512,7 +515,31 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
 .rail-bar i{position:absolute;left:0;top:-1px;height:3px;background:var(--acc);width:22%}
 .rail-hint{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-2)}
 
-/* ═══════════════════ WEBINAR — weiße Sektion ═══════════════════ */
+/* ═══════════════════ WEBINAR — Vermillion-Fläche ═══════════════════
+   Die Sektion kippt komplett auf den Akzent. Überschrieben wird nur die
+   semantische Ebene, alle Regeln darunter gelten unverändert weiter.
+   Die ID schlägt .inv, deshalb ist die Fläche in beiden Modi dieselbe —
+   genau so gewollt: dieser Block soll immer gleich laut sein. */
+#webinar{
+  --bg:var(--vermillion);     /* Anker, nicht --acc: das wird hier gleich umdefiniert */
+  --fg:var(--paper);
+  --fg-2:rgba(244,243,239,.76);
+  --hair:rgba(244,243,239,.34);
+  --hair-2:rgba(244,243,239,.17);
+  --acc:var(--ink);           /* Akzente auf der Fläche werden schwarz */
+}
+/* Lichthof: auf Orange trägt nur noch Tiefe, keine zweite Farbe */
+#webinar .web-card::before{background:var(--ink);opacity:.11}
+/* Akkordeon füllt sich schwarz, der Text darin bleibt hell */
+#webinar .acc .it::before{background:var(--ink)}
+#webinar .acc .it.open .hd{color:var(--paper)}
+#webinar .acc .bd p{color:rgba(244,243,239,.76)}
+/* Schaltfläche: schwarz auf Orange, beim Hover dreht sie auf Papier */
+#webinar .btn{background:var(--ink);color:var(--paper)}
+#webinar .btn.cfill::after{background:var(--paper)}
+#webinar .btn.cfill:hover>*{color:var(--ink)}
+
+/* ═══════════════════ WEBINAR — Aufbau ═══════════════════ */
 .web-card{
   display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(20px,3.6vw,60px);
   border:1px solid var(--hair);border-radius:2px;padding:clamp(22px,3.2vw,52px);
@@ -548,45 +575,102 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
 .acc .it.open .bd{max-height:130px}
 .acc .bd p{padding:0 14px 14px;font-size:13px;color:rgba(var(--white-rgb),.7);max-width:46ch}
 
-/* ═══════════════════ PROFIL ═══════════════════ */
-.about-grid{display:grid;grid-template-columns:1fr .8fr;gap:clamp(24px,4.6vw,76px);align-items:start}
-@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
-.about-grid .big{font-weight:700;font-stretch:112%;font-size:clamp(19px,2.1vw,30px);line-height:1.15;letter-spacing:-.04em}
-.about-grid .col p+p{margin-top:1em;color:var(--fg-2);max-width:48ch}
-.portrait{
-  position:sticky;top:96px;aspect-ratio:4/5;border-radius:2px;overflow:hidden;
-  /* wie die Projektkacheln bewusst dunkel — hier kommt ein Foto hinein */
-  background:linear-gradient(160deg,var(--ink-3),var(--ink));border:1px solid var(--hair-2);
-  display:flex;align-items:flex-end;padding:22px;color:var(--paper);
+/* ═══════════════════ TEAM — vier Plätze auf einer Linie ═══════════════════
+   Die Aufstellung erklärt sich über die Linie oben: ein gefüllter Knoten,
+   drei hohle. Wer führt, sieht man, ohne dass es jemand hinschreibt. */
+.team-lead{color:var(--fg-2);max-width:48ch;margin-top:18px}
+.crew{
+  display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;
+  gap:clamp(10px,1.4vw,20px);margin-top:clamp(40px,5vw,70px);
+  position:relative;padding-top:26px;
 }
-.portrait img{
-  position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;
-  /* Kopf sitzt im oberen Drittel, nicht mittig */
-  object-position:50% 26%;
-  filter:grayscale(1) contrast(1.06);
-  transition:filter .6s var(--e),transform .9s var(--e);
+/* die Linie, auf der alle sitzen */
+.crew::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--hair)}
+.seat{position:relative;display:flex;flex-direction:column;min-width:0;isolation:isolate}
+.seat .node{
+  position:absolute;top:-26px;left:0;width:9px;height:9px;border-radius:50%;
+  border:1px solid var(--acc);background:var(--bg);
+  transform:translateY(-4px);
 }
-.portrait:hover img{filter:grayscale(0) contrast(1.02);transform:scale(1.035)}
-/* Lichthof bleibt, aber gedämpft — er darf das Gesicht nicht einfärben */
-.portrait::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(90% 70% at 24% 10%,rgba(255,59,31,.22),transparent 62%)}
-/* Fuß dunkel ziehen, damit die Bildunterschrift auf jedem Foto steht */
-.portrait::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(8,9,11,.82),rgba(8,9,11,0) 52%)}
-.portrait span{position:relative;z-index:2;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.72}
-@media(max-width:900px){.portrait{position:static}}
+.seat.lead .node{background:var(--acc);box-shadow:0 0 0 4px rgba(255,59,31,.14)}
+/* offene Karten haben einen 1px-Rahmen — der Knoten misst ab Innenkante */
+.seat.open .node{top:-27px;left:-1px}
 
-/* Nebenbilder — drei Kacheln unter dem Profil */
-.snaps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1.2vw,16px);margin-top:clamp(24px,3.4vw,44px)}
-@media(max-width:700px){.snaps{grid-template-columns:1fr 1fr}.snaps .snap:last-child{display:none}}
-.snap{position:relative;aspect-ratio:4/5;border-radius:2px;overflow:hidden;border:1px solid var(--hair-2);background:linear-gradient(160deg,var(--ink-3),var(--ink))}
-.snap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%;filter:grayscale(1) contrast(1.06);transition:filter .55s var(--e),transform .9s var(--e)}
-.snap:hover img{filter:grayscale(0) contrast(1.02);transform:scale(1.04)}
-.snap::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,9,11,.72),rgba(8,9,11,0) 46%);pointer-events:none}
-.snap figcaption{
-  position:absolute;left:14px;bottom:12px;z-index:2;color:var(--paper);
-  font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.7;
-  transition:opacity .45s var(--e),transform .45s var(--e);
+/* ── besetzter Platz ── */
+.seat.lead .face{
+  position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:2px;
+  background:linear-gradient(160deg,var(--ink-3),var(--ink));
 }
-.snap:hover figcaption{opacity:1;transform:translateY(-2px)}
+.seat.lead .face img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.06);transition:filter .6s var(--e),transform .9s var(--e);
+}
+.seat.lead:hover .face img{filter:grayscale(0) contrast(1.02);transform:scale(1.035)}
+
+/* ── offener Platz: Ziffer statt Gesicht ── */
+/* kein overflow:hidden — sonst schneidet die Karte ihren eigenen Knoten ab.
+   Die Vermillion-Fläche liegt ohnehin exakt auf inset:0. */
+.seat.open{
+  border:1px solid var(--hair);border-radius:2px;
+  transition:border-color .5s var(--e),transform .5s var(--e);
+}
+.seat.open:hover{border-color:var(--acc);transform:translateY(-4px)}
+/* Vermillion waechst aus der Unterkante. Bewusst scaleY statt translateY:
+   so bleibt die Flaeche immer im Kasten und die Karte braucht kein
+   overflow:hidden, das sonst ihren eigenen Knoten abschneiden wuerde. */
+.seat.open::after{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--acc);
+  transform:scaleY(0);transform-origin:bottom;transition:transform .6s var(--e);
+}
+.seat.open:hover::after{transform:scaleY(1)}
+/* füllt die Resthöhe der Reihe, damit alle vier Karten gleich hoch schließen */
+.seat.open .ghost{
+  flex:1;display:grid;place-items:center;min-height:110px;
+  font-family:'DM Mono',monospace;font-size:clamp(38px,5.4vw,86px);line-height:1;
+  color:var(--hair);letter-spacing:-.04em;
+  transition:color .55s var(--e),transform .7s var(--e);
+}
+/* die Fläche darunter ist in beiden Modi Vermillion — also fest auf Weiß */
+.seat.open:hover .ghost{color:rgba(255,255,255,.32);transform:scale(1.06)}
+
+/* ── gemeinsame Textspalte ── */
+.who{padding:16px 0 0;display:flex;flex-direction:column;gap:7px}
+.seat.open .who{padding:0 clamp(14px,1.3vw,20px) clamp(16px,1.6vw,22px)}
+.pos{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-2)}
+.pos b{font-weight:400;color:var(--acc);margin-right:7px}
+.seat h3{font-size:clamp(17px,1.75vw,25px);letter-spacing:-.035em;line-height:1.02}
+.role{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+.seat p{font-size:13px;color:var(--fg-2);max-width:32ch;line-height:1.45}
+.seat .ea{
+  margin-top:6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--fg-2);transition:color .45s var(--e),transform .45s var(--e);
+}
+/* auf der Vermillion-Fläche muss alles auf Weiß kippen */
+.seat.open:hover .pos,.seat.open:hover .ea{color:rgba(255,255,255,.86)}
+.seat.open:hover .ea{transform:translateX(4px)}
+.seat.open:hover h3{color:#fff}
+.seat.open:hover p{color:rgba(255,255,255,.78)}
+.seat.open:hover .node{background:var(--acc)}
+
+@media(max-width:1000px){
+  .crew{grid-template-columns:1fr 1fr}
+  /* Der Lead legt sich quer und wird zweispaltig: das Foto behaelt sein
+     4:5 und muss nicht in ein Breitformat gequetscht werden. */
+  .seat.lead{
+    grid-column:1 / -1;display:grid;align-items:end;
+    grid-template-columns:minmax(0,215px) 1fr;gap:clamp(16px,3vw,34px);
+  }
+  .seat.lead .who{padding-top:0}
+  /* Sobald die Reihe umbricht, sitzen die Knoten nicht mehr auf der Linie,
+     sondern im Text der Zeile darüber. Stattdessen markiert eine Fahne den Lead. */
+  .seat .node{display:none}
+  .seat.lead .face::after{content:"";position:absolute;left:0;top:0;width:46px;height:3px;background:var(--acc);z-index:2}
+}
+@media(max-width:560px){
+  .crew{grid-template-columns:1fr}
+  .seat.open .ghost{min-height:78px}
+}
+
 .sig{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
 .sig b{font-weight:400;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--hair);border-radius:100px;padding:5px 10px;color:var(--fg-2)}
 
@@ -663,8 +747,8 @@ footer a:hover{color:var(--white)}
       </g>
     </svg>Jen Preisser <span class="sub">Consulting</span></a>
   <div class="nav-links">
-    <a href="#profil"><span class="dec">Profil</span></a>
     <a href="#haltung"><span class="dec">Haltung</span></a>
+    <a href="#team"><span class="dec">Team</span></a>
     <a href="#arbeiten"><span class="dec">Arbeiten</span></a>
     <a href="#leistungen"><span class="dec">Leistungen</span></a>
     <a href="#level"><span class="dec">Level</span></a>
@@ -743,50 +827,10 @@ footer a:hover{color:var(--white)}
 </div>
 
 <!-- ═══ HALTUNG ═══ -->
-<section class="wrap" id="profil" data-chapter="01 — Profil">
+
+<section class="wrap" id="haltung" data-chapter="01 — Haltung">
   <div class="sec-head">
-    <div class="eyebrow rv"><em>01</em> — <span class="scram">Profil</span></div>
-    <h2 class="split">Wer hier berät.</h2>
-  </div>
-  <div class="about-grid rv">
-    <div class="col">
-      <p class="big">Ich bin Jen Preisser. Ich entwickle Software mit KI — jeden Tag, nicht als Demo.</p>
-      <p>Eigenes Studio, eigene Produkte, Kundenprojekte. Ich arbeite dort, wo die Dokumentation noch dünn ist und man Dinge selbst herausfinden muss.</p>
-      <p>Beratung bei mir heißt: Sie sprechen mit der Person, die es auch bauen würde.</p>
-      <p>Heute berate ich allein. Der Plan ist größer: ein Netzwerk aus Menschen, die KI wirklich einsetzen — und Unternehmen, die genau die suchen.</p>
-      <div class="sig"><b>Solo-Entwicklerin</b><b>Studio-Gründerin</b><b>Remote / DE</b><b>DSGVO-bewusst</b></div>
-    </div>
-    <div class="portrait">
-      <img src="bilder/jen-mantel.jpg" alt="Jen Preisser, Porträt bei Abendlicht in der Altstadt" loading="lazy" decoding="async" width="1000" height="1250">
-      <span>Jen Preisser — Founder, Chasing Dreams Interactive</span>
-    </div>
-  </div>
-
-  <!-- Nebenbilder: Graustufen in Ruhe, Farbe beim Hover — wie die Projektkacheln.
-       Ausgeblendet, bis die drei Fotos da sind. Zum Aktivieren die Dateien mit
-       bilder/portraits-aufbereiten.py erzeugen und diesen Kommentar entfernen.
-  <div class="snaps rv" data-d="2">
-    <figure class="snap">
-      <img src="bilder/jen-anzug.jpg" alt="Jen Preisser im Anzug" loading="lazy" decoding="async" width="1000" height="1250">
-      <figcaption>Auf Termin</figcaption>
-    </figure>
-    <figure class="snap">
-      <img src="bilder/jen-abendlicht.jpg" alt="Jen Preisser bei Sonnenuntergang" loading="lazy" decoding="async" width="1000" height="1250">
-      <figcaption>Feierabend</figcaption>
-    </figure>
-    <figure class="snap">
-      <img src="bilder/jen-valencia.jpg" alt="Jen Preisser vor der Ciutat de les Arts i les Ciències in Valencia" loading="lazy" decoding="async" width="1000" height="1250">
-      <figcaption>Remote, Valencia</figcaption>
-    </figure>
-  </div>
-  -->
-</section>
-
-<!-- ═══ CTA ═══ -->
-
-<section class="wrap" id="haltung" data-chapter="02 — Haltung">
-  <div class="sec-head">
-    <div class="eyebrow rv"><em>02</em> — <span class="scram">Haltung</span></div>
+    <div class="eyebrow rv"><em>01</em> — <span class="scram">Haltung</span></div>
   </div>
 
   <h2 class="claim" id="claim">
@@ -807,7 +851,72 @@ footer a:hover{color:var(--white)}
   </div>
 </section>
 
-<!-- ═══ LEISTUNGEN ═══ -->
+<!-- ═══ TEAM ═══
+     Wird ein Platz besetzt: am <a class="seat open"> das "open" entfernen, aus dem
+     <a> ein <article> machen, .ghost durch <div class="face"><img …></div> ersetzen
+     und den .ea-Hinweis löschen. Foto vorher durch bilder/portraits-aufbereiten.py. -->
+<section class="wrap" id="team" data-chapter="02 — Team">
+  <div class="sec-head">
+    <div class="eyebrow rv"><em>02</em> — <span class="scram">Team</span></div>
+    <div>
+      <h2 class="split">Vier Plätze.<br>Einer besetzt.</h2>
+      <p class="team-lead rv" data-d="2">Beratung bei mir heißt: Sie sprechen mit der Person, die es auch bauen würde. Angefangen hat das als Ein-Personen-Beratung, dabei bleibt es nicht — KI ist zu breit, als dass ein Kopf alles abdecken könnte. Diese drei Rollen besetze ich gerade, mit Leuten, die selbst bauen statt nur zu beraten.</p>
+    </div>
+  </div>
+
+  <div class="crew rv" data-d="3">
+
+    <article class="seat lead">
+      <span class="node"></span>
+      <div class="face">
+        <img src="bilder/jen-mantel.jpg" alt="Jen Preisser" loading="lazy" decoding="async" width="1000" height="1250">
+      </div>
+      <div class="who">
+        <span class="pos"><b>01</b> Lead</span>
+        <h3>Jen Preisser</h3>
+        <span class="role">Gründung · Strategie &amp; Entwicklung</span>
+        <p>Entwickelt seit Jahren täglich Software mit KI. Eigenes Studio, eigene Produkte, Kundenprojekte. Zuständig für alles, wofür es noch keine Anleitung gibt.</p>
+        <div class="sig"><b>Solo-Entwickler</b><b>Studio-Gründer</b><b>Remote / DE</b><b>DSGVO-bewusst</b></div>
+      </div>
+    </article>
+
+    <a class="seat open" href="mailto:jen@preisser.de?subject=Als%20Berater%20mitarbeiten%20%E2%80%94%20Prozesse%20%26%20Automatisierung">
+      <span class="node"></span>
+      <span class="ghost" aria-hidden="true">02</span>
+      <div class="who">
+        <span class="pos">Offen</span>
+        <h3>Prozesse &amp;<br>Automatisierung</h3>
+        <p>Übersetzt gewachsene Abläufe in Systeme, die ohne Zuruf laufen. Schwerpunkt Mittelstand und Verwaltung.</p>
+        <span class="ea">Platz frei — schreiben Sie mir →</span>
+      </div>
+    </a>
+
+    <a class="seat open" href="mailto:jen@preisser.de?subject=Als%20Berater%20mitarbeiten%20%E2%80%94%20Daten%20%26%20Integration">
+      <span class="node"></span>
+      <span class="ghost" aria-hidden="true">03</span>
+      <div class="who">
+        <span class="pos">Offen</span>
+        <h3>Daten &amp;<br>Integration</h3>
+        <p>Bringt KI an bestehende Systeme heran — CRM, ERP, Dokumentenablage. Damit Ergebnisse dort landen, wo gearbeitet wird.</p>
+        <span class="ea">Platz frei — schreiben Sie mir →</span>
+      </div>
+    </a>
+
+    <a class="seat open" href="mailto:jen@preisser.de?subject=Als%20Berater%20mitarbeiten%20%E2%80%94%20Enablement%20%26%20Workshops">
+      <span class="node"></span>
+      <span class="ghost" aria-hidden="true">04</span>
+      <div class="who">
+        <span class="pos">Offen</span>
+        <h3>Enablement &amp;<br>Workshops</h3>
+        <p>Bringt Teams dahin, dass sie ohne uns weiterarbeiten. Didaktik statt Vortrag.</p>
+        <span class="ea">Platz frei — schreiben Sie mir →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══ ARBEITEN ═══ -->
 
 <section id="arbeiten" data-chapter="03 — Arbeiten">
   <div class="wrap">
@@ -1079,7 +1188,6 @@ footer a:hover{color:var(--white)}
   </div>
 </section>
 
-<!-- ═══ PROFIL ═══ -->
 
 <section class="cta wrap" id="kontakt" data-chapter="07 — Kontakt">
   <div class="eyebrow rv"><em>07</em> — <span class="scram">Kontakt</span></div>

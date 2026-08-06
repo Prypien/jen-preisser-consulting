@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Würfel-Logo — Runde 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#08090B; --paper:#F4F3EF; --acc:#FF3B1F;
+  --bg:var(--paper); --fg:var(--ink); --hair:rgba(8,9,11,.14);
+  --e:cubic-bezier(.19,1,.22,1);
+}
+:root[data-theme="dark"]{--bg:var(--ink);--fg:var(--paper);--hair:rgba(244,243,239,.16)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:'Inter Tight',system-ui,sans-serif;padding:48px clamp(20px,5vw,72px);transition:background .5s var(--e),color .5s var(--e)}
+h1{font-weight:800;font-stretch:112%;letter-spacing:-.04em;font-size:clamp(28px,4vw,46px);line-height:1}
+.eyebrow{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.55}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:14px}
+.intro{font-size:14px;opacity:.6;max-width:66ch;line-height:1.55;margin-bottom:40px}
+button{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:inherit;border:1px solid currentColor;border-radius:100px;padding:9px 18px;cursor:pointer;transition:background .35s var(--e),color .35s var(--e)}
+button:hover{background:var(--acc);border-color:var(--acc);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair)}
+.card{background:var(--bg);padding:30px 26px 26px;display:flex;flex-direction:column;gap:20px}
+.card h2{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-top:6px}
+.card p{font-size:13px;opacity:.6;line-height:1.5;max-width:40ch}
+.stage{display:flex;align-items:flex-end;gap:24px;padding:24px 0;border-block:1px solid var(--hair);min-height:118px}
+.stage svg{display:block;color:var(--acc);flex:none}
+.lockup{display:flex;align-items:center;gap:11px;font-weight:800;font-stretch:112%;letter-spacing:-.035em;font-size:16px;white-space:nowrap}
+.lockup .sub{opacity:.45;font-weight:400}
+.lockup svg{width:24px;flex:none;color:var(--acc)}
+.card .big{transition:transform .8s var(--e)}
+.card:hover .big{transform:rotate(120deg)}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div>
+    <div class="eyebrow">Logo — Runde 2</div>
+    <h1 style="margin-top:10px">Sechs weitere Wege.</h1>
+  </div>
+  <button id="tgl" type="button">Hell / Dunkel</button>
+</div>
+<p class="intro">Alles auf derselben Würfelgeometrie und in der Akzentfarbe der Seite, damit nichts aus dem Designsystem fällt. Größen von links nach rechts: 72, 44, 26 und 18 Pixel — 26 ist die Navigationsgröße, 18 das Favicon. Über eine Karte fahren dreht den großen Würfel um eine Fläche.</p>
+
+<div class="grid" id="grid"></div>
+
+<script>
+const CUBE = `<g stroke="currentColor" stroke-width="SW" stroke-linejoin="round" fill="none">
+  <path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g>`;
+
+const IDEAS = [
+{
+  key:'E', name:'Die Vier — Level-Würfel',
+  desc:'Vier Augen auf der Deckfläche. Kein beliebiges Ornament, sondern Deine vier Level vom Anfänger bis Tony Stark. Das Logo erklärt damit die Seite, statt nur hübsch zu sein.',
+  svg:(sw,r)=>CUBE.replace('SW',sw)+`<g fill="currentColor">
+    <circle cx="16" cy="6.4" r="${r}"/><circle cx="22.3" cy="10" r="${r}"/>
+    <circle cx="9.7" cy="10" r="${r}"/><circle cx="16" cy="13.6" r="${r}"/></g>`
+},
+{
+  key:'F', name:'Nur Augen',
+  desc:'Der Würfel ohne Linien — allein aus Punkten an den Ecken. Das Auge schließt die Form selbst. Am eigenständigsten von allen und funktioniert winzig hervorragend, braucht aber einen Moment, bis man den Würfel sieht.',
+  svg:(sw,r)=>`<g fill="currentColor">
+    <circle cx="16" cy="2" r="${r}"/><circle cx="30" cy="10" r="${r}"/><circle cx="30" cy="26" r="${r}"/>
+    <circle cx="16" cy="34" r="${r}"/><circle cx="2" cy="26" r="${r}"/><circle cx="2" cy="10" r="${r}"/>
+    <circle cx="16" cy="18" r="${r*1.25}"/></g>`
+},
+{
+  key:'G', name:'Das offene Auge',
+  desc:'Ein echtes Auge statt Würfelaugen, mittig im Gitter. Klarer Bezug auf Beratung — hinsehen, erkennen. Achtung: Auge plus Technik ist ein oft benutztes Bild, das kann schnell nach Überwachung aussehen.',
+  svg:(sw,r)=>CUBE.replace('SW',sw)+`<path d="M7.5 18 Q16 10.5 24.5 18 Q16 25.5 7.5 18Z" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linejoin="round"/><circle cx="16" cy="18" r="${r*1.35}" fill="currentColor"/>`
+},
+{
+  key:'H', name:'Aufgeklappt',
+  desc:'Die Deckfläche schwebt ab, das Auge sitzt im Spalt. Erzählt genau das, was Du machst: den Deckel abnehmen und hineinschauen. Die unruhigste Variante — braucht Platz und wird klein schnell undeutlich.',
+  svg:(sw,r)=>`<g stroke="currentColor" stroke-width="${sw}" stroke-linejoin="round" fill="none">
+    <path d="M16 0 30 8 16 16 2 8Z"/>
+    <path d="M2 13 16 21 30 13 30 26 16 34 2 26Z"/></g>
+    <circle cx="16" cy="18.4" r="${r}" fill="currentColor"/>`
+},
+{
+  key:'I', name:'Siegel',
+  desc:'Würfel im Kreis. Wirkt sofort wie eine geführte Marke und ist als Profilbild oder Stempel unschlagbar, weil der Kreis überall passt. Etwas konservativer als der Rest der Seite.',
+  vb:'0 0 44 44',
+  svg:(sw,r)=>`<circle cx="22" cy="22" r="20" fill="none" stroke="currentColor" stroke-width="${sw}"/>
+    <g transform="translate(12.5 11.5) scale(0.6)">
+    <g stroke="currentColor" stroke-width="${sw*1.7}" stroke-linejoin="round" fill="none">
+    <path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/><path d="M16 2 16 18M16 18 30 26M16 18 2 26"/></g>
+    <g fill="currentColor"><circle cx="16" cy="10" r="${r*1.7}"/><circle cx="23" cy="22" r="${r*1.7}"/><circle cx="9" cy="22" r="${r*1.7}"/></g></g>`
+},
+{
+  key:'J', name:'Die Kante',
+  desc:'Nur die drei Innenkanten und drei Augen, die Außenlinie fällt weg. Die reduzierteste Fassung — das Auge ergänzt den Würfel von selbst. Passt am besten zu einer Seite, die Du ruhiger haben willst.',
+  svg:(sw,r)=>`<g stroke="currentColor" stroke-width="${sw*1.15}" stroke-linecap="round" fill="none">
+    <path d="M16 4 16 18M16 18 28 25M16 18 4 25"/></g>
+    <g fill="currentColor"><circle cx="16" cy="10.5" r="${r}"/><circle cx="24.5" cy="23.5" r="${r}"/><circle cx="7.5" cy="23.5" r="${r}"/></g>`
+}
+];
+
+const SIZES=[{w:72,sw:1.6,r:1.9},{w:44,sw:1.7,r:2},{w:26,sw:1.9,r:2.1},{w:18,sw:2.3,r:2.4}];
+
+document.getElementById('grid').innerHTML = IDEAS.map(o=>{
+  const vb = o.vb || '0 0 32 36';
+  const shots = SIZES.map((s,i)=>
+    `<svg ${i===0?'class="big"':''} style="width:${s.w}px" viewBox="${vb}" fill="none" aria-label="Logo ${o.key}">${o.svg(s.sw,s.r)}</svg>`
+  ).join('');
+  return `<div class="card">
+    <div><div class="eyebrow">Variante ${o.key}</div><h2>${o.name}</h2></div>
+    <div class="stage">${shots}</div>
+    <p>${o.desc}</p>
+    <div class="lockup"><svg viewBox="${vb}" fill="none">${o.svg(1.9,2.1)}</svg>Jen Preisser <span class="sub">Consulting</span></div>
+  </div>`;
+}).join('');
+
+document.getElementById('tgl').addEventListener('click',()=>{
+  const r=document.documentElement;
+  r.dataset.theme = r.dataset.theme==='dark' ? 'light' : 'dark';
+});
+</script>
+</body>
+</html>
