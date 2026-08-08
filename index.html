@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Jen Preisser — KI-Beratung & Produktentwicklung</title>
+<title>Jen Preisser, KI-Beratung & Produktentwicklung</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 36'%3E%3Cg stroke='%23FF3B1F' stroke-width='2.4' stroke-linejoin='round' fill='none'%3E%3Cpath d='M16 2 30 10 30 26 16 34 2 26 2 10Z'/%3E%3Cpath d='M16 2 16 18M16 18 30 26M16 18 2 26'/%3E%3C/g%3E%3Cg fill='%23FF3B1F'%3E%3Ccircle cx='16' cy='10' r='2.6'/%3E%3Ccircle cx='23' cy='22' r='2.6'/%3E%3Ccircle cx='9' cy='22' r='2.6'/%3E%3C/g%3E%3C/svg%3E" />
-<meta name="description" content="Jen Preisser Consulting — KI-Strategie, Automatisierung und Produktentwicklung. Von jemandem, der selbst baut." />
+<meta name="description" content="Jen Preisser Consulting, KI-Strategie, Automatisierung und Produktentwicklung. Von jemandem, der selbst baut." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -204,10 +204,13 @@ nav.hide{transform:translateY(-105%)}
 
 /* ═══════════════════ HERO ═══════════════════ */
 header.hero{
-  min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
-  padding:104px var(--pad) 28px;position:relative;overflow:hidden;isolation:isolate;
+  /* ohne die Kopfzeile braucht der Hero keine volle Bildschirmhoehe mehr */
+  min-height:min(78svh,760px);display:flex;flex-direction:column;justify-content:flex-end;
+  padding:132px var(--pad) 28px;position:relative;overflow:hidden;isolation:isolate;
   background:var(--black);
 }
+/* schmal: die Mindesthoehe wuerde nur Leere ueber der Zeile erzeugen */
+@media(max-width:700px){header.hero{min-height:auto;padding:116px var(--pad) 24px}}
 .field{position:absolute;inset:0;z-index:-1;overflow:hidden}
 /* Lichthöfe liegen hinter dem Punktfeld */
 .field b{position:absolute;display:block;border-radius:50%;filter:blur(80px);z-index:0}
@@ -220,21 +223,7 @@ header.hero{
 @keyframes fl2{50%{transform:translate(9vw,-5vh) scale(.9)}}
 #mesh{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
 
-.hero-top{display:flex;justify-content:space-between;gap:34px;margin-bottom:auto;padding-top:5vh;flex-wrap:wrap;position:relative}
-/* Hinweis-Pille: neues Webinar */
-.badge{
-  display:inline-flex;align-items:center;gap:10px;
-  border:1px solid var(--hair);border-radius:100px;padding:8px 14px 8px 12px;
-  background:rgba(var(--white-rgb),.04);backdrop-filter:blur(6px);
-  transition:border-color .45s var(--e),background .45s var(--e),transform .45s var(--e);
-}
-.badge:hover{border-color:var(--acc);background:rgba(255,59,31,.12);transform:translateY(-1px)}
-.badge i{flex:none;width:6px;height:6px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 rgba(255,59,31,.6);animation:ping 2.6s infinite}
-.badge .sep{opacity:.32}
-.badge .arw{opacity:.45;transition:transform .45s var(--e),opacity .45s var(--e)}
-.badge:hover .arw{opacity:1;transform:translateX(3px)}
 @keyframes ping{70%,100%{box-shadow:0 0 0 10px rgba(255,59,31,0)}}
-.hero-top .rt{text-align:right;max-width:26ch;font-size:13.5px;color:var(--fg-2)}
 
 h1.hero-title{font-size:clamp(40px,9vw,150px);letter-spacing:-.045em;margin:3.2vh 0 3.2vh;position:relative}
 h1.hero-title .ln{display:block;overflow:hidden;padding-bottom:.04em}
@@ -253,7 +242,8 @@ h1.hero-title .out:hover{color:var(--acc);-webkit-text-stroke-color:var(--acc)}
 .slot li{height:1em;margin-bottom:.38em;white-space:nowrap;line-height:1;width:max-content}
 
 .hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;border-top:1px solid var(--hair);padding-top:16px;position:relative}
-.hero-foot .lead{max-width:38ch;font-size:clamp(15px,1.25vw,19px);line-height:1.4}
+.hero-foot .lead{max-width:38ch;font-size:clamp(15px,1.25vw,19px);line-height:1.4;display:flex;align-items:baseline;gap:12px}
+.hero-foot .lead .arrow{flex:none;color:var(--acc);font-weight:700}
 .scrollcue{display:flex;align-items:center;gap:9px}
 .scrollcue i{width:1px;height:30px;background:var(--fg-2);display:block;transform-origin:top;animation:cue 2.4s infinite var(--e)}
 @keyframes cue{0%{transform:scaleY(0)}45%{transform:scaleY(1)}100%{transform:scaleY(0);transform-origin:bottom}}
@@ -304,7 +294,9 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
 
 /* ═══════════════════ HALTUNG — decodierendes Manifest ═══════════════════ */
 .claim{
-  font-size:clamp(19px,3.9vw,60px);letter-spacing:-.045em;line-height:1.06;
+  /* Der Grad haengt an der Breite, nicht an einem Mindestwert: die laengste
+     Zeile steht auf nowrap und wuerde sonst rechts abgeschnitten. */
+  font-size:clamp(11px,3.8vw,60px);letter-spacing:-.045em;line-height:1.06;
   border-block:1px solid var(--hair);padding:clamp(34px,6vh,80px) 0;
   margin-bottom:clamp(34px,5vw,70px);position:relative;
 }
@@ -515,29 +507,27 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
 .rail-bar i{position:absolute;left:0;top:-1px;height:3px;background:var(--acc);width:22%}
 .rail-hint{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-2)}
 
-/* ═══════════════════ WEBINAR — Vermillion-Fläche ═══════════════════
-   Die Sektion kippt komplett auf den Akzent. Überschrieben wird nur die
-   semantische Ebene, alle Regeln darunter gelten unverändert weiter.
-   Die ID schlägt .inv, deshalb ist die Fläche in beiden Modi dieselbe —
-   genau so gewollt: dieser Block soll immer gleich laut sein. */
-#webinar{
-  --bg:var(--vermillion);     /* Anker, nicht --acc: das wird hier gleich umdefiniert */
-  --fg:var(--paper);
-  --fg-2:rgba(244,243,239,.76);
+/* ═══════════════════ WEBINAR / Akzent statt Vollfläche ═══════════════════
+   Die Sektion bleibt auf der invertierten Grundfläche. Vermillion trägt nur
+   die Terminspalte und eine Kante oben: die Farbe zeigt, wo geklickt wird,
+   statt den ganzen Block zu überschreien. */
+#webinar .web-card{position:relative;overflow:hidden}
+#webinar .web-card::after{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:var(--vermillion);z-index:2}
+#webinar .web-side{
+  background:var(--vermillion);color:var(--paper);
+  border-left:0;border-radius:2px;
+  padding:clamp(20px,2.4vw,30px);
+  --fg-2:rgba(244,243,239,.78);
   --hair:rgba(244,243,239,.34);
-  --hair-2:rgba(244,243,239,.17);
-  --acc:var(--ink);           /* Akzente auf der Fläche werden schwarz */
 }
-/* Lichthof: auf Orange trägt nur noch Tiefe, keine zweite Farbe */
-#webinar .web-card::before{background:var(--ink);opacity:.11}
-/* Akkordeon füllt sich schwarz, der Text darin bleibt hell */
-#webinar .acc .it::before{background:var(--ink)}
-#webinar .acc .it.open .hd{color:var(--paper)}
-#webinar .acc .bd p{color:rgba(244,243,239,.76)}
 /* Schaltfläche: schwarz auf Orange, beim Hover dreht sie auf Papier */
-#webinar .btn{background:var(--ink);color:var(--paper)}
-#webinar .btn.cfill::after{background:var(--paper)}
-#webinar .btn.cfill:hover>*{color:var(--ink)}
+#webinar .web-side .btn{background:var(--ink);color:var(--paper)}
+#webinar .web-side .btn.cfill::after{background:var(--paper)}
+#webinar .web-side .btn.cfill:hover>*{color:var(--ink)}
+@media(max-width:900px){
+  /* die allgemeine Regel nimmt der Spalte sonst ihre Polsterung */
+  #webinar .web-side{border-top:0;padding:clamp(20px,2.4vw,30px)}
+}
 
 /* ═══════════════════ WEBINAR — Aufbau ═══════════════════ */
 .web-card{
@@ -575,26 +565,25 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
 .acc .it.open .bd{max-height:130px}
 .acc .bd p{padding:0 14px 14px;font-size:13px;color:rgba(var(--white-rgb),.7);max-width:46ch}
 
-/* ═══════════════════ TEAM — vier Plätze auf einer Linie ═══════════════════
+/* ═══════════════════ TEAM / vier Plätze auf einer Linie ═══════════════════
    Die Aufstellung erklärt sich über die Linie oben: ein gefüllter Knoten,
-   drei hohle. Wer führt, sieht man, ohne dass es jemand hinschreibt. */
+   drei hohle. Wer führt, sieht man, ohne dass es jemand hinschreibt.
+   Die drei offenen Plätze sind bewusst stumm: dunkle Flächen, kein Text. */
 .team-lead{color:var(--fg-2);max-width:48ch;margin-top:18px}
 .crew{
   display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;
   gap:clamp(10px,1.4vw,20px);margin-top:clamp(40px,5vw,70px);
-  position:relative;padding-top:26px;
+  position:relative;padding-top:26px;align-items:stretch;
 }
 /* die Linie, auf der alle sitzen */
 .crew::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--hair)}
-.seat{position:relative;display:flex;flex-direction:column;min-width:0;isolation:isolate}
+.seat{position:relative;display:flex;flex-direction:column;min-width:0}
 .seat .node{
   position:absolute;top:-26px;left:0;width:9px;height:9px;border-radius:50%;
   border:1px solid var(--acc);background:var(--bg);
   transform:translateY(-4px);
 }
 .seat.lead .node{background:var(--acc);box-shadow:0 0 0 4px rgba(255,59,31,.14)}
-/* offene Karten haben einen 1px-Rahmen — der Knoten misst ab Innenkante */
-.seat.open .node{top:-27px;left:-1px}
 
 /* ── besetzter Platz ── */
 .seat.lead .face{
@@ -607,54 +596,22 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
 }
 .seat.lead:hover .face img{filter:grayscale(0) contrast(1.02);transform:scale(1.035)}
 
-/* ── offener Platz: Ziffer statt Gesicht ── */
-/* kein overflow:hidden — sonst schneidet die Karte ihren eigenen Knoten ab.
-   Die Vermillion-Fläche liegt ohnehin exakt auf inset:0. */
+/* ── offener Platz: stumme dunkle Fläche, läuft auf volle Spaltenhöhe ── */
 .seat.open{
-  border:1px solid var(--hair);border-radius:2px;
-  transition:border-color .5s var(--e),transform .5s var(--e);
+  border-radius:2px;min-height:240px;
+  background:linear-gradient(160deg,var(--ink-3),var(--ink));
 }
-.seat.open:hover{border-color:var(--acc);transform:translateY(-4px)}
-/* Vermillion waechst aus der Unterkante. Bewusst scaleY statt translateY:
-   so bleibt die Flaeche immer im Kasten und die Karte braucht kein
-   overflow:hidden, das sonst ihren eigenen Knoten abschneiden wuerde. */
-.seat.open::after{
-  content:"";position:absolute;inset:0;z-index:-1;background:var(--acc);
-  transform:scaleY(0);transform-origin:bottom;transition:transform .6s var(--e);
-}
-.seat.open:hover::after{transform:scaleY(1)}
-/* füllt die Resthöhe der Reihe, damit alle vier Karten gleich hoch schließen */
-.seat.open .ghost{
-  flex:1;display:grid;place-items:center;min-height:110px;
-  font-family:'DM Mono',monospace;font-size:clamp(38px,5.4vw,86px);line-height:1;
-  color:var(--hair);letter-spacing:-.04em;
-  transition:color .55s var(--e),transform .7s var(--e);
-}
-/* die Fläche darunter ist in beiden Modi Vermillion — also fest auf Weiß */
-.seat.open:hover .ghost{color:rgba(255,255,255,.32);transform:scale(1.06)}
 
-/* ── gemeinsame Textspalte ── */
+/* ── Textspalte des besetzten Platzes ── */
 .who{padding:16px 0 0;display:flex;flex-direction:column;gap:7px}
-.seat.open .who{padding:0 clamp(14px,1.3vw,20px) clamp(16px,1.6vw,22px)}
 .pos{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-2)}
 .pos b{font-weight:400;color:var(--acc);margin-right:7px}
 .seat h3{font-size:clamp(17px,1.75vw,25px);letter-spacing:-.035em;line-height:1.02}
 .role{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
-.seat p{font-size:13px;color:var(--fg-2);max-width:32ch;line-height:1.45}
-.seat .ea{
-  margin-top:6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--fg-2);transition:color .45s var(--e),transform .45s var(--e);
-}
-/* auf der Vermillion-Fläche muss alles auf Weiß kippen */
-.seat.open:hover .pos,.seat.open:hover .ea{color:rgba(255,255,255,.86)}
-.seat.open:hover .ea{transform:translateX(4px)}
-.seat.open:hover h3{color:#fff}
-.seat.open:hover p{color:rgba(255,255,255,.78)}
-.seat.open:hover .node{background:var(--acc)}
 
 @media(max-width:1000px){
-  .crew{grid-template-columns:1fr 1fr}
-  /* Der Lead legt sich quer und wird zweispaltig: das Foto behaelt sein
+  .crew{grid-template-columns:1fr 1fr 1fr}
+  /* Der Lead legt sich quer und wird zweispaltig: das Foto behält sein
      4:5 und muss nicht in ein Breitformat gequetscht werden. */
   .seat.lead{
     grid-column:1 / -1;display:grid;align-items:end;
@@ -665,10 +622,6 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
      sondern im Text der Zeile darüber. Stattdessen markiert eine Fahne den Lead. */
   .seat .node{display:none}
   .seat.lead .face::after{content:"";position:absolute;left:0;top:0;width:46px;height:3px;background:var(--acc);z-index:2}
-}
-@media(max-width:560px){
-  .crew{grid-template-columns:1fr}
-  .seat.open .ghost{min-height:78px}
 }
 
 .sig{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
@@ -726,7 +679,7 @@ footer a:hover{color:var(--white)}
 <div id="pre">
   <div class="inner">
     <span class="nm">Jen&nbsp;Preisser</span>
-    <div class="ct"><span id="pct">00</span> — KI-Beratung</div>
+    <div class="ct"><span id="pct">00</span>, KI-Beratung</div>
     <div class="bar"><i id="pbar"></i></div>
   </div>
 </div>
@@ -755,7 +708,7 @@ footer a:hover{color:var(--white)}
     <a href="#webinar"><span class="dec">Webinar</span></a>
   </div>
   <div class="nav-right">
-    <span id="clock">Berlin —:—</span>
+    <span id="clock">Berlin :</span>
     <button id="theme" class="tgl" type="button" aria-pressed="true" aria-label="Dunklen Modus einschalten"><i></i></button>
     <a href="funnel.html?intent=webinar" class="nav-cta cfill"><span>Webinar sichern</span></a>
   </div>
@@ -766,18 +719,6 @@ footer a:hover{color:var(--white)}
   <div class="field">
     <b></b><b></b>
     <canvas id="mesh"></canvas>
-  </div>
-
-  <div class="hero-top">
-    <div>
-      <a class="badge eyebrow" href="#webinar">
-        <i></i><span class="scram">Neues Webinar</span>
-        <span class="sep">/</span><span id="badgedate">8. September</span>
-        <span class="arw">→</span>
-      </a>
-      <div class="eyebrow" style="margin-top:12px"><span class="scram">KI-Beratung &amp; Produktentwicklung</span></div>
-    </div>
-    <p class="rt">Strategie, Automatisierung und echte Software.</p>
   </div>
 
   <h1 class="hero-title">
@@ -804,7 +745,7 @@ footer a:hover{color:var(--white)}
   </h1>
 
   <div class="hero-foot">
-    <p class="lead">Ich berate nicht über Technologie, die ich aus Vorträgen kenne — ich baue sie täglich.</p>
+    <p class="lead"><span class="arrow" aria-hidden="true">→</span>Ich baue sie täglich.</p>
     <div class="scrollcue eyebrow"><i></i></div>
   </div>
 </header>
@@ -828,39 +769,30 @@ footer a:hover{color:var(--white)}
 
 <!-- ═══ HALTUNG ═══ -->
 
-<section class="wrap" id="haltung" data-chapter="01 — Haltung">
+<section class="wrap" id="haltung" data-chapter="01 / Haltung">
   <div class="sec-head">
-    <div class="eyebrow rv"><em>01</em> — <span class="scram">Haltung</span></div>
+    <div class="eyebrow rv"><em>01</em> / <span class="scram">Haltung</span></div>
   </div>
 
   <h2 class="claim" id="claim">
     <span class="cl">KI-Projekte scheitern</span>
-    <span class="cl">selten an der Technik.</span>
+    <span class="cl">selten an den vorhandenen Möglichkeiten.</span>
     <span class="cl dim">Sondern daran, dass</span>
-    <span class="cl dim">niemand beides versteht:</span>
-    <span class="cl hi">Geschäft und Code.</span>
+    <span class="cl hi">diese nicht genutzt werden.</span>
   </h2>
-
-  <p class="rv" data-d="1" style="color:var(--fg-2);max-width:54ch;margin-top:28px">Eine Milliarde Menschen nutzen inzwischen KI-Chats. Aber nur ein Bruchteil arbeitet mit den Werkzeugen, die tatsächlich etwas verändern: Agenten, die an die eigenen Systeme angebunden sind und eine Aufgabe zu Ende bringen. Genau dort arbeite ich — und genau das gebe ich weiter.</p>
-
-  <div class="stats rv">
-    <div class="stat"><b class="dec-num">2</b><small>Eigene Produkte in Entwicklung</small></div>
-    <div class="stat"><b class="dec-num">13</b><small>Umgesetzte Projekte, Web bis Automatisierung</small></div>
-    <div class="stat"><b class="dec-num">1:1</b><small>Direkt mit mir, keine Zwischenebene</small></div>
-    <div class="stat"><b class="dec-num">30 MIN</b><small>Erstgespräch, unverbindlich</small></div>
-  </div>
 </section>
 
 <!-- ═══ TEAM ═══
      Wird ein Platz besetzt: am <a class="seat open"> das "open" entfernen, aus dem
-     <a> ein <article> machen, .ghost durch <div class="face"><img …></div> ersetzen
-     und den .ea-Hinweis löschen. Foto vorher durch bilder/portraits-aufbereiten.py. -->
-<section class="wrap" id="team" data-chapter="02 — Team">
+     aus dem leeren <div class="seat open"> ein <article class="seat lead"> machen,
+     Bild und .who-Block wie bei 01 ergänzen. Foto vorher durch
+     bilder/portraits-aufbereiten.py schicken. -->
+<section class="wrap" id="team" data-chapter="02 / Team">
   <div class="sec-head">
-    <div class="eyebrow rv"><em>02</em> — <span class="scram">Team</span></div>
+    <div class="eyebrow rv"><em>02</em> / <span class="scram">Team</span></div>
     <div>
-      <h2 class="split">Vier Plätze.<br>Einer besetzt.</h2>
-      <p class="team-lead rv" data-d="2">Beratung bei mir heißt: Sie sprechen mit der Person, die es auch bauen würde. Angefangen hat das als Ein-Personen-Beratung, dabei bleibt es nicht — KI ist zu breit, als dass ein Kopf alles abdecken könnte. Diese drei Rollen besetze ich gerade, mit Leuten, die selbst bauen statt nur zu beraten.</p>
+      <h2 class="split">Unsere Berater</h2>
+      <p class="team-lead rv" data-d="2">Beratung bei mir heißt: Für jedes Problem haben wir einen qualifizierten Ansprechpartner. Wir alle kommen aus unterschiedlichen Bereichen der Wirtschaft, doch alle sind an der Speerspitze der Technik.</p>
     </div>
   </div>
 
@@ -875,53 +807,22 @@ footer a:hover{color:var(--white)}
         <span class="pos"><b>01</b> Lead</span>
         <h3>Jen Preisser</h3>
         <span class="role">Gründung · Strategie &amp; Entwicklung</span>
-        <p>Entwickelt seit Jahren täglich Software mit KI. Eigenes Studio, eigene Produkte, Kundenprojekte. Zuständig für alles, wofür es noch keine Anleitung gibt.</p>
-        <div class="sig"><b>Solo-Entwickler</b><b>Studio-Gründer</b><b>Remote / DE</b><b>DSGVO-bewusst</b></div>
       </div>
     </article>
 
-    <a class="seat open" href="mailto:jen@preisser.de?subject=Als%20Berater%20mitarbeiten%20%E2%80%94%20Prozesse%20%26%20Automatisierung">
-      <span class="node"></span>
-      <span class="ghost" aria-hidden="true">02</span>
-      <div class="who">
-        <span class="pos">Offen</span>
-        <h3>Prozesse &amp;<br>Automatisierung</h3>
-        <p>Übersetzt gewachsene Abläufe in Systeme, die ohne Zuruf laufen. Schwerpunkt Mittelstand und Verwaltung.</p>
-        <span class="ea">Platz frei — schreiben Sie mir →</span>
-      </div>
-    </a>
-
-    <a class="seat open" href="mailto:jen@preisser.de?subject=Als%20Berater%20mitarbeiten%20%E2%80%94%20Daten%20%26%20Integration">
-      <span class="node"></span>
-      <span class="ghost" aria-hidden="true">03</span>
-      <div class="who">
-        <span class="pos">Offen</span>
-        <h3>Daten &amp;<br>Integration</h3>
-        <p>Bringt KI an bestehende Systeme heran — CRM, ERP, Dokumentenablage. Damit Ergebnisse dort landen, wo gearbeitet wird.</p>
-        <span class="ea">Platz frei — schreiben Sie mir →</span>
-      </div>
-    </a>
-
-    <a class="seat open" href="mailto:jen@preisser.de?subject=Als%20Berater%20mitarbeiten%20%E2%80%94%20Enablement%20%26%20Workshops">
-      <span class="node"></span>
-      <span class="ghost" aria-hidden="true">04</span>
-      <div class="who">
-        <span class="pos">Offen</span>
-        <h3>Enablement &amp;<br>Workshops</h3>
-        <p>Bringt Teams dahin, dass sie ohne uns weiterarbeiten. Didaktik statt Vortrag.</p>
-        <span class="ea">Platz frei — schreiben Sie mir →</span>
-      </div>
-    </a>
+    <div class="seat open" aria-hidden="true"><span class="node"></span></div>
+    <div class="seat open" aria-hidden="true"><span class="node"></span></div>
+    <div class="seat open" aria-hidden="true"><span class="node"></span></div>
 
   </div>
 </section>
 
 <!-- ═══ ARBEITEN ═══ -->
 
-<section id="arbeiten" data-chapter="03 — Arbeiten">
+<section id="arbeiten" data-chapter="03 / Arbeiten">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow rv"><em>03</em> — <span class="scram">Arbeiten</span></div>
+      <div class="eyebrow rv"><em>03</em> / <span class="scram">Arbeiten</span></div>
       <h2 class="split">Gebaut, ausgeliefert, im Einsatz.</h2>
     </div>
   </div>
@@ -955,17 +856,17 @@ footer a:hover{color:var(--white)}
       <article class="pcard marke" style="--mono:url('bilder/logo-etg24.png');--img:url('bilder/etg24.jpg')">
         <div class="shot"></div><div class="sheen"></div>
         <div class="top"><span class="num">/04</span><span class="kind">KI · Vertrieb</span></div>
-        <div class="bot"><h3>ETG24</h3><div class="desc">Den kompletten Vertriebsprozess mit KI automatisiert — 50 % weniger Kosten.</div></div>
+        <div class="bot"><h3>ETG24</h3><div class="desc">Den kompletten Vertriebsprozess mit KI automatisiert, 50 % weniger Kosten.</div></div>
       </article>
       <article class="pcard marke hell" style="--mono:url('bilder/logo-wolfofseo.png');--img:url('bilder/wolfofseo.jpg')">
         <div class="shot"></div><div class="sheen"></div>
         <div class="top"><span class="num">/05</span><span class="kind">KI · SEO</span></div>
-        <div class="bot"><h3>Wolf of SEO</h3><div class="desc">SEO mit KI, schon 2022 — auf 10.000 Besucher gebracht.</div></div>
+        <div class="bot"><h3>Wolf of SEO</h3><div class="desc">SEO mit KI, schon 2022, auf 10.000 Besucher gebracht.</div></div>
       </article>
       <article class="pcard marke" style="--mono:url('bilder/logo-bosch.png');--img:url('bilder/bosch.jpg')">
         <div class="shot"></div><div class="sheen"></div>
         <div class="top"><span class="num">/06</span><span class="kind">KI · Data Analytics</span></div>
-        <div class="bot"><h3>Bosch</h3><div class="desc">Anforderungen und Entwicklung mit KI beschleunigt — Schwerpunkt Data Analytics.</div></div>
+        <div class="bot"><h3>Bosch</h3><div class="desc">Anforderungen und Entwicklung mit KI beschleunigt, Schwerpunkt Data Analytics.</div></div>
       </article>
       <article class="pcard" style="--img:url('bilder/monday.jpg')">
         <div class="shot"></div><div class="sheen"></div>
@@ -980,7 +881,7 @@ footer a:hover{color:var(--white)}
       <article class="pcard marke hell" style="--mono:url('bilder/logo-purelite.png');--img:url('bilder/purelite.jpg')">
         <div class="shot"></div><div class="sheen"></div>
         <div class="top"><span class="num">/09</span><span class="kind">KI · E-Commerce</span></div>
-        <div class="bot"><h3>PURELITE</h3><div class="desc">Google Ads und SEO, KI-gestützt — den Shop Schritt für Schritt ausgebaut.</div></div>
+        <div class="bot"><h3>PURELITE</h3><div class="desc">Google Ads und SEO, KI-gestützt, den Shop Schritt für Schritt ausgebaut.</div></div>
       </article>
       <article class="pcard marke hell" style="--mono:url('bilder/logo-sprachcoach.png');--img:url('bilder/sprachcoach.jpg')">
         <div class="shot"></div><div class="sheen"></div>
@@ -990,7 +891,7 @@ footer a:hover{color:var(--white)}
       <article class="pcard marke hell" style="--mono:url('bilder/logo-tutorspace.png');--img:url('bilder/tutorspace.jpg')">
         <div class="shot"></div><div class="sheen"></div>
         <div class="top"><span class="num">/11</span><span class="kind">Station</span></div>
-        <div class="bot"><h3>TutorSpace</h3><div class="desc">Hier war ich fest im Team — und habe sehr viel gelernt.</div></div>
+        <div class="bot"><h3>TutorSpace</h3><div class="desc">Hier war ich fest im Team, und habe sehr viel gelernt.</div></div>
       </article>
       <article class="pcard" style="--img:url('bilder/mark-a2a.jpg')">
         <div class="shot"></div><div class="sheen"></div>
@@ -1013,9 +914,9 @@ footer a:hover{color:var(--white)}
 
 <!-- ═══ WEBINAR — weiße Sektion ═══ -->
 
-<section class="wrap" id="leistungen" data-chapter="04 — Leistungen">
+<section class="wrap" id="leistungen" data-chapter="04 / Leistungen">
   <div class="sec-head">
-    <div class="eyebrow rv"><em>04</em> — <span class="scram">Leistungen</span></div>
+    <div class="eyebrow rv"><em>04</em> / <span class="scram">Leistungen</span></div>
     <div>
       <h2 class="split">Beratung und Workshops, die sich rechnen.</h2>
       <p class="rv" data-d="2" style="color:var(--fg-2);max-width:46ch;margin-top:18px">Die meisten brauchen keine Agenten-Architektur, sondern eine ehrliche Antwort auf zwei Fragen: Wo geht bei uns Arbeitszeit verloren, und was davon kann KI heute übernehmen?</p>
@@ -1040,7 +941,7 @@ footer a:hover{color:var(--white)}
       <div class="body">
         <div class="big">02</div>
         <h3>Toolanalyse<br>&amp; Aufsatz</h3>
-        <p>Welche Werkzeuge passen zum Fall — und wie werden sie sauber aufgesetzt? Ein tragfähiges Fundament für Ihre Use Cases, im Team wie in einzelnen Rollen.</p>
+        <p>Welche Werkzeuge passen zum Fall, und wie werden sie sauber aufgesetzt? Ein tragfähiges Fundament für Ihre Use Cases, im Team wie in einzelnen Rollen.</p>
         <div class="tags"><b>Toolauswahl</b><b>Use Cases</b><b>Aufsatz</b></div>
       </div>
     </article>
@@ -1051,7 +952,7 @@ footer a:hover{color:var(--white)}
       <div class="body">
         <div class="big">03</div>
         <h3>Umsetzung<br>&amp; Workshops</h3>
-        <p>Mithilfe bei der Umsetzung und Einarbeitung der Teams — an den eigenen Aufgaben, mit Material zum Weiterarbeiten.</p>
+        <p>Mithilfe bei der Umsetzung und Einarbeitung der Teams, an den eigenen Aufgaben, mit Material zum Weiterarbeiten.</p>
         <div class="tags"><b>Umsetzung</b><b>Team-Workshop</b><b>Einarbeitung</b></div>
       </div>
     </article>
@@ -1062,7 +963,7 @@ footer a:hover{color:var(--white)}
       <div class="body">
         <div class="big">04</div>
         <h3>Laufende<br>Begleitung</h3>
-        <p>Beratung über das Projekt hinaus. Ein Ansprechpartner, der mitdenkt, während sich das Feld weiterdreht — monatlich oder projektweise.</p>
+        <p>Beratung über das Projekt hinaus. Ein Ansprechpartner, der mitdenkt, während sich das Feld weiterdreht, monatlich oder projektweise.</p>
         <div class="tags"><b>Sparring</b><b>Monatlich</b><b>Review</b></div>
       </div>
     </article>
@@ -1075,9 +976,9 @@ footer a:hover{color:var(--white)}
 
 <!-- ═══ LEVEL ═══ -->
 
-<section class="wrap" id="level" data-chapter="05 — Level">
+<section class="wrap" id="level" data-chapter="05 / Level">
   <div class="sec-head">
-    <div class="eyebrow rv"><em>05</em> — <span class="scram">Level</span></div>
+    <div class="eyebrow rv"><em>05</em> / <span class="scram">Level</span></div>
     <div>
       <h2 class="split">Für jedes Level etwas dabei.</h2>
       <p class="rv" data-d="2" style="color:var(--fg-2);max-width:44ch;margin-top:18px">Von der ersten Frage bis an die Stelle, wo die Dokumentation aufhört. Wir fangen da an, wo Sie stehen.</p>
@@ -1125,7 +1026,7 @@ footer a:hover{color:var(--white)}
       <div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
       <div>
         <h3>Tony Stark</h3>
-        <p>Sie sind selbst weit vorn. Dann reden wir über das, wofür es noch keine Anleitung gibt — und ich bringe mit, was bei mir schon läuft.</p>
+        <p>Sie sind selbst weit vorn. Dann reden wir über das, wofür es noch keine Anleitung gibt, und ich bringe mit, was bei mir schon läuft.</p>
       </div>
     </div>
   </div>
@@ -1133,9 +1034,9 @@ footer a:hover{color:var(--white)}
 
 <!-- ═══ ARBEITEN ═══ -->
 
-<section class="wrap inv" id="webinar" data-chapter="06 — Webinar">
+<section class="wrap inv" id="webinar" data-chapter="06 / Webinar">
   <div class="sec-head">
-    <div class="eyebrow rv"><em>06</em> — <span class="scram">Live</span></div>
+    <div class="eyebrow rv"><em>06</em> / <span class="scram">Live</span></div>
     <h2 class="split">Das nächste Webinar.</h2>
   </div>
 
@@ -1143,12 +1044,12 @@ footer a:hover{color:var(--white)}
     <div>
       <div class="eyebrow"><span class="scram">Kostenlos · Online · Deutsch</span></div>
       <h3>KI im Unternehmen: was 2026 wirklich funktioniert</h3>
-      <p>Kein Hype-Vortrag. Die Werkzeuge, die heute im Einsatz sind — und der Weg zu Ergebnissen in 90 Tagen.</p>
+      <p>Kein Hype-Vortrag. Die Werkzeuge, die heute im Einsatz sind, und der Weg zu Ergebnissen in 90 Tagen.</p>
 
       <div class="acc" id="acc">
         <div class="it open">
           <div class="hd"><span class="n">01</span><span class="t">Der ehrliche Stand</span><i>+</i></div>
-          <div class="bd"><p>Was Sprachmodelle 2026 zuverlässig können — und wo sie reproduzierbar scheitern.</p></div>
+          <div class="bd"><p>Was Sprachmodelle 2026 zuverlässig können, und wo sie reproduzierbar scheitern.</p></div>
         </div>
         <div class="it">
           <div class="hd"><span class="n">02</span><span class="t">Agenten im Tagesgeschäft</span><i>+</i></div>
@@ -1189,10 +1090,9 @@ footer a:hover{color:var(--white)}
 </section>
 
 
-<section class="cta wrap" id="kontakt" data-chapter="07 — Kontakt">
-  <div class="eyebrow rv"><em>07</em> — <span class="scram">Kontakt</span></div>
+<section class="cta wrap" id="kontakt" data-chapter="07 / Kontakt">
+  <div class="eyebrow rv"><em>07</em> / <span class="scram">Kontakt</span></div>
   <h2 class="rv" data-d="1" style="margin-top:20px">Reden wir<br>über <span class="ital">Ihren</span><br>Fall.</h2>
-  <p class="cta-lead rv" data-d="2">Zwei Wege hinein. In beiden Fällen ordnen Sie sich in wenigen Schritten selbst ein — danach weiß ich vorab, worum es geht, und wir verlieren im Gespräch keine Zeit.</p>
 
   <div class="entries rv" data-d="3">
     <a class="entry" href="funnel.html?intent=webinar">
@@ -1223,7 +1123,7 @@ footer a:hover{color:var(--white)}
 
 <footer>
   <span>© <span id="yr"></span> Jen Preisser Consulting</span>
-  <span class="mono" style="opacity:.55">Berlin <span id="clock2">—:—</span></span>
+  <span class="mono" style="opacity:.55">Berlin <span id="clock2">:</span></span>
   <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span>
 </footer>
 
@@ -1348,9 +1248,9 @@ function decode(el,dur=620,text){
    da kann nichts umbrechen — eine Breitensperre hatte sie nur auf 0 gesetzt,
    wenn sie vor dem ersten Layout gemessen wurde. */
 function lockWidths(){
-  /* Pille oben: sonst zappelt ihre Breite während des Decodens.
-     Die Navigation decodiert absichtlich NICHT — dort reicht die rote Pille. */
-  $$('.badge .scram').forEach(el=>{
+  /* Kurze Mono-Zeilen: sonst zappelt ihre Breite während des Decodens.
+     Die Navigation decodiert absichtlich NICHT. */
+  $$('.wbar .scram').forEach(el=>{
     const w=Math.ceil(el.getBoundingClientRect().width);
     if(w>0&&!el.style.minWidth)el.style.minWidth=w+'px';
   });
@@ -1650,9 +1550,7 @@ const TARGET=new Date('2026-09-08T18:00:00+02:00');
 (function(){
   const f=new Intl.DateTimeFormat('de-DE',{weekday:'long',day:'2-digit',month:'long',hour:'2-digit',minute:'2-digit',timeZone:'Europe/Berlin'});
   $('#webdate').textContent=f.format(TARGET)+' Uhr';
-  /* Pille oben zieht ihr Datum aus demselben Termin */
   const short=new Intl.DateTimeFormat('de-DE',{day:'numeric',month:'long',timeZone:'Europe/Berlin'});
-  $('#badgedate').textContent=short.format(TARGET);
   /* Leiste unter dem Hero zieht denselben Termin; ist der Termin vorbei, verschwindet sie */
   const bar=$('#wbar');
   if(TARGET-Date.now()<=0){bar.remove();}
