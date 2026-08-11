@@ -1,22 +1,25 @@
 #!/usr/bin/env python3
-"""Porträts für die Profil-Sektion aufbereiten.
+"""Porträts für die Team-Sektion aufbereiten.
 
 Legt die Originale irgendwo ab (Downloads, Fotos-Export, egal) und ruft auf:
 
-    python3 bilder/portraits-aufbereiten.py mantel=~/Downloads/IMG_1234.jpg \
-                                            anzug=~/Downloads/IMG_5678.jpg
+    python3 bilder/portraits-aufbereiten.py jen-mantel=~/Downloads/IMG_1234.jpg \
+                                            tim-lemmrich=~/Downloads/IMG_5678.jpg
 
-Erlaubte Schlüssel: mantel, anzug, abendlicht, valencia.
-Es müssen nicht alle auf einmal kommen — was fehlt, bleibt unangetastet.
+Der Name links vom Gleichheitszeichen wird der Dateiname: bilder/<name>.jpg.
+Erlaubt sind Kleinbuchstaben, Ziffern und Bindestriche.
 
-Ergebnis pro Bild: bilder/jen-<schluessel>.jpg, 4:5, 1000x1250, sRGB,
-ohne EXIF (also auch ohne GPS-Koordinaten der Aufnahme).
+Ergebnis pro Bild: 4:5, höchstens 1000 px breit, sRGB, ohne EXIF
+(also auch ohne GPS-Koordinaten der Aufnahme). Kleinere Vorlagen werden
+nicht hochgerechnet.
 
-Der Zuschnitt nimmt die volle Bildhöhe und schneidet seitlich mittig zu.
-Passt das nicht, hilft --fokus: Anteil von links, 0.0 bis 1.0.
+Ist die Vorlage breiter als 4:5, wird seitlich mittig beschnitten; ist sie
+höher, fällt unten etwas weg, damit der Kopf oben sitzt. Passt der seitliche
+Ausschnitt nicht, hilft --fokus: Anteil von links, 0.0 bis 1.0.
 
-    python3 bilder/portraits-aufbereiten.py mantel=foto.jpg --fokus 0.62
+    python3 bilder/portraits-aufbereiten.py tim-lemmrich=foto.jpg --fokus 0.62
 """
+import re
 import sys
 from pathlib import Path
 
@@ -26,7 +29,7 @@ except ImportError:
     sys.exit("Pillow fehlt. Installieren mit:  python3 -m pip install Pillow")
 
 ZIEL_W, ZIEL_H = 1000, 1250          # 4:5, reicht für die Kachel auf Retina
-SCHLUESSEL = ("mantel", "anzug", "abendlicht", "valencia")
+NAME_OK = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
 HIER = Path(__file__).resolve().parent
 
 
@@ -70,15 +73,16 @@ def main(argv: list[str]) -> int:
         return print(__doc__) or 1
 
     for paar in paare:
-        schluessel, _, pfad = paar.partition("=")
-        if schluessel not in SCHLUESSEL:
-            print(f"  unbekannt: {schluessel} (erlaubt: {', '.join(SCHLUESSEL)})")
+        name, _, pfad = paar.partition("=")
+        if not NAME_OK.match(name):
+            print(f"  ungueltiger Name: {name!r}")
+            print("  erlaubt sind Kleinbuchstaben, Ziffern und Bindestriche, z. B. tim-lemmrich")
             return 1
         quelle = Path(pfad).expanduser()
         if not quelle.is_file():
             print(f"  nicht gefunden: {quelle}")
             return 1
-        zuschneiden(quelle, HIER / f"jen-{schluessel}.jpg", fokus)
+        zuschneiden(quelle, HIER / f"{name}.jpg", fokus)
     return 0
 
 

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Impressum, Jen Preisser Consulting</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 36'%3E%3Cg stroke='%23FF3B1F' stroke-width='2.4' stroke-linejoin='round' fill='none'%3E%3Cpath d='M16 2 30 10 30 26 16 34 2 26 2 10Z'/%3E%3Cpath d='M16 2 16 18M16 18 30 26M16 18 2 26'/%3E%3C/g%3E%3Cg fill='%23FF3B1F'%3E%3Ccircle cx='16' cy='10' r='2.6'/%3E%3Ccircle cx='23' cy='22' r='2.6'/%3E%3Ccircle cx='9' cy='22' r='2.6'/%3E%3C/g%3E%3C/svg%3E" />
+<meta name="description" content="Impressum und Anbieterkennzeichnung von Jen Preisser Consulting." />
+<meta name="robots" content="index,follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Modus vor dem ersten Pixel setzen, damit nichts falsch aufblitzt.
+     Hell ist die Grundstellung, Dunkel nur nach ausdrücklicher Wahl. -->
+<script>try{if(localStorage.getItem('jp-theme')!=='dark')document.documentElement.dataset.theme='light'}catch(e){document.documentElement.dataset.theme='light'}</script>
+<style>
+/* Dieselben Tokens wie auf der Hauptseite: absolute Anker plus Rollen,
+   die im hellen Modus getauscht werden. */
+:root{
+  --ink:#08090B;
+  --ink-2:#101217;
+  --ink-3:#191C22;
+  --paper:#F4F3EF;
+  --paper-2:#EAE8E1;
+
+  --vermillion:#FF3B1F;
+  --acc:var(--vermillion);
+
+  --black:var(--ink);
+  --white:var(--paper);
+  --black-rgb:8,9,11;
+  --white-rgb:244,243,239;
+
+  --bg:var(--black);
+  --fg:var(--white);
+  --fg-2:rgba(var(--white-rgb),.56);
+  --hair:rgba(var(--white-rgb),.14);
+  --hair-2:rgba(var(--white-rgb),.07);
+
+  --e:cubic-bezier(.19,1,.22,1);
+  --pad:clamp(18px,4.4vw,84px);
+}
+:root[data-theme="light"]{
+  --black:var(--paper);
+  --white:var(--ink);
+  --black-rgb:244,243,239;
+  --white-rgb:8,9,11;
+}
+html.theming,html.theming *,html.theming *::before,html.theming *::after{
+  transition:background-color .45s var(--e),border-color .45s var(--e),color .45s var(--e) !important;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;background:var(--black)}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:'Archivo',system-ui,sans-serif;
+  font-size:clamp(14.5px,1vw,16.5px);line-height:1.55;letter-spacing:-.008em;
+}
+a{color:inherit}
+h1,h2,.dsp{font-weight:800;font-stretch:118%;font-variation-settings:'wdth' 118;letter-spacing:-.035em;line-height:.98}
+.wrap{padding-inline:var(--pad)}
+.mono{font-family:'DM Mono',ui-monospace,monospace;font-size:10.5px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-2)}
+.mono em{font-style:normal;color:var(--acc)}
+
+/* ── Kopf ── */
+nav{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:20px var(--pad);border-bottom:1px solid var(--hair-2);
+}
+.logo{font-weight:800;font-stretch:112%;font-size:15px;letter-spacing:-.035em;display:flex;align-items:center;gap:10px;white-space:nowrap;text-decoration:none}
+.logo .sub{opacity:.45;font-weight:400}
+.logo .mark{width:23px;flex:none;color:var(--acc);overflow:visible;transition:transform .7s var(--e)}
+.logo:hover .mark{transform:rotate(120deg)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.tgl{
+  flex:none;width:30px;height:30px;border-radius:50%;padding:0;
+  border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer;
+  display:grid;place-items:center;transition:border-color .4s var(--e),transform .55s var(--e);
+}
+.tgl:hover{border-color:var(--acc);transform:rotate(-24deg)}
+.tgl i{width:12px;height:12px;border-radius:50%;border:1px solid currentColor;background:linear-gradient(90deg,currentColor 50%,transparent 50.1%);transition:transform .6s var(--e)}
+:root[data-theme="light"] .tgl i{transform:rotate(180deg)}
+.tgl:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.back{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-2);text-decoration:none;transition:color .35s var(--e)}
+.back:hover{color:var(--acc)}
+@media(max-width:620px){.back{display:none}}
+
+/* ── Inhalt ── */
+main{padding:clamp(48px,9vh,110px) 0 clamp(60px,10vh,130px);max-width:none}
+h1{font-size:clamp(38px,7.4vw,104px);margin:14px 0 clamp(34px,5vw,60px)}
+.doc{display:grid;grid-template-columns:180px minmax(0,62ch);gap:clamp(16px,4vw,60px);align-items:start}
+@media(max-width:820px){.doc{grid-template-columns:1fr;gap:10px}}
+.doc + .doc{margin-top:clamp(30px,4.4vw,52px);padding-top:clamp(30px,4.4vw,52px);border-top:1px solid var(--hair-2)}
+.doc h2{font-size:clamp(17px,1.7vw,23px);line-height:1.15}
+.doc p+p{margin-top:.9em}
+.doc p{color:var(--fg-2)}
+.doc .lead{color:var(--fg)}
+.doc a{color:var(--acc);text-decoration:none;border-bottom:1px solid rgba(255,59,31,.4);transition:border-color .35s var(--e)}
+.doc a:hover{border-color:var(--acc)}
+address{font-style:normal;color:var(--fg);line-height:1.7}
+
+
+footer{
+  border-top:1px solid var(--hair-2);color:var(--fg-2);font-size:12px;
+  padding:20px var(--pad) 30px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+footer a{text-decoration:none}
+footer a:hover{color:var(--acc)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s !important;transition-duration:.001s !important}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <svg class="mark" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+      <g stroke="currentColor" stroke-width="1.9" stroke-linejoin="round">
+        <path d="M16 2 30 10 30 26 16 34 2 26 2 10Z"/>
+        <path d="M16 2 16 18M16 18 30 26M16 18 2 26"/>
+      </g>
+      <g fill="currentColor">
+        <circle cx="16" cy="10" r="2.1"/><circle cx="23" cy="22" r="2.1"/><circle cx="9" cy="22" r="2.1"/>
+      </g>
+    </svg>Jen Preisser <span class="sub">Consulting</span></a>
+  <div class="nav-right">
+    <a href="index.html" class="back">Zurück zur Startseite</a>
+    <button id="theme" class="tgl" type="button" aria-pressed="true" aria-label="Dunklen Modus einschalten"><i></i></button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="mono"><em>§</em> Anbieterkennzeichnung</div>
+  <h1>Impressum</h1>
+
+  <section class="doc">
+    <h2>Angaben gemäß § 5 DDG</h2>
+    <div>
+      <address class="lead">
+        Jen Eric Preißer<br>
+        Jen Preisser Consulting<br>
+        Schellingstraße 18/1<br>
+        72622 Nürtingen<br>
+        Deutschland
+      </address>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>Kontakt</h2>
+    <div>
+      <p class="lead">
+        E-Mail: <a href="mailto:jen@preisser.de">jen@preisser.de</a>
+      </p>
+      <p>Anfragen werden zeitnah per E-Mail beantwortet.</p>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>Umsatzsteuer</h2>
+    <div>
+      <p class="lead">Kleinunternehmer gemäß § 19 UStG.</p>
+      <p>Es wird keine Umsatzsteuer ausgewiesen. Eine Umsatzsteuer-Identifikationsnummer nach § 27a UStG liegt nicht vor.</p>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>Verantwortlich für den Inhalt</h2>
+    <div>
+      <p class="lead">Nach § 18 Abs. 2 MStV: Jen Eric Preißer, Anschrift wie oben.</p>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>Streitbeilegung</h2>
+    <div>
+      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a></p>
+      <p>Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>Haftung für Inhalte</h2>
+    <div>
+      <p>Als Diensteanbieter bin ich nach § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+      <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben davon unberührt. Eine diesbezügliche Haftung ist erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen entferne ich diese Inhalte umgehend.</p>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>Haftung für Links</h2>
+    <div>
+      <p>Dieses Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.</p>
+      <p>Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft; rechtswidrige Inhalte waren nicht erkennbar. Eine permanente inhaltliche Kontrolle ohne konkrete Anhaltspunkte einer Rechtsverletzung ist nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen entferne ich solche Links umgehend.</p>
+    </div>
+  </section>
+
+  <section class="doc">
+    <h2>Urheberrecht</h2>
+    <div>
+      <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors beziehungsweise Erstellers.</p>
+      <p>Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet und als solche gekennzeichnet. Sollten Sie dennoch auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© <span id="yr">2026</span> Jen Preisser Consulting</span>
+  <span><a href="index.html">Startseite</a> · <a href="#">Datenschutz</a></span>
+</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+$('#yr').textContent=new Date().getFullYear();
+
+/* Modus, gleiche Logik und derselbe Speicherplatz wie auf der Hauptseite */
+(function(){
+  const root=document.documentElement,btn=$('#theme'),KEY='jp-theme';
+  function apply(mode,animate){
+    if(animate){
+      root.classList.add('theming');
+      clearTimeout(root.__thm);root.__thm=setTimeout(()=>root.classList.remove('theming'),520);
+    }
+    if(mode==='light')root.dataset.theme='light';else delete root.dataset.theme;
+    btn.setAttribute('aria-pressed',mode==='light');
+    btn.setAttribute('aria-label',mode==='light'?'Dunklen Modus einschalten':'Hellen Modus einschalten');
+  }
+  let saved=null;try{saved=localStorage.getItem(KEY)}catch(e){}
+  apply(saved==='dark'?'dark':'light',false);
+  btn.addEventListener('click',()=>{
+    const next=root.dataset.theme==='light'?'dark':'light';
+    apply(next,true);
+    try{localStorage.setItem(KEY,next)}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>

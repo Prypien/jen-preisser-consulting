@@ -583,18 +583,24 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
   border:1px solid var(--acc);background:var(--bg);
   transform:translateY(-4px);
 }
-.seat.lead .node{background:var(--acc);box-shadow:0 0 0 4px rgba(255,59,31,.14)}
+/* besetzte Plaetze tragen einen gefuellten Knoten, der Lead zusaetzlich einen Hof */
+.seat.lead .node,.seat.taken .node{background:var(--acc)}
+.seat.lead .node{box-shadow:0 0 0 4px rgba(255,59,31,.14)}
 
 /* ── besetzter Platz ── */
-.seat.lead .face{
-  position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:2px;
+.seat .face{
+  position:relative;overflow:hidden;border-radius:2px;
   background:linear-gradient(160deg,var(--ink-3),var(--ink));
+  /* fuellt die Hoehe bis zur Textspalte, damit alle Kacheln buendig schliessen */
+  flex:1;min-height:200px;
 }
-.seat.lead .face img{
+/* der Lead gibt die Zeilenhoehe vor, deshalb behaelt er sein festes Format */
+.seat.lead .face{aspect-ratio:4/5;flex:none}
+.seat .face img{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   filter:grayscale(1) contrast(1.06);transition:filter .6s var(--e),transform .9s var(--e);
 }
-.seat.lead:hover .face img{filter:grayscale(0) contrast(1.02);transform:scale(1.035)}
+.seat:hover .face img{filter:grayscale(0) contrast(1.02);transform:scale(1.035)}
 
 /* ── offener Platz: stumme dunkle Fläche, läuft auf volle Spaltenhöhe ── */
 .seat.open{
@@ -622,6 +628,12 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
      sondern im Text der Zeile darüber. Stattdessen markiert eine Fahne den Lead. */
   .seat .node{display:none}
   .seat.lead .face::after{content:"";position:absolute;left:0;top:0;width:46px;height:3px;background:var(--acc);z-index:2}
+}
+@media(max-width:620px){
+  /* drei Spalten waeren auf dem Handy nur noch Briefmarken */
+  .crew{grid-template-columns:1fr 1fr}
+  .seat.lead{grid-template-columns:minmax(0,150px) 1fr;gap:16px}
+  .seat.open{min-height:180px}
 }
 
 .sig{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
@@ -810,7 +822,18 @@ footer a:hover{color:var(--white)}
       </div>
     </article>
 
-    <div class="seat open" aria-hidden="true"><span class="node"></span></div>
+    <article class="seat taken">
+      <span class="node"></span>
+      <div class="face">
+        <img src="bilder/tim-lemmrich.jpg" alt="Tim Lemmrich" loading="lazy" decoding="async" width="1000" height="1250">
+      </div>
+      <div class="who">
+        <span class="pos"><b>02</b> Berater</span>
+        <h3>Tim Lemmrich</h3>
+        <span class="role">AI Sales · Langjährige Erfahrung</span>
+      </div>
+    </article>
+
     <div class="seat open" aria-hidden="true"><span class="node"></span></div>
     <div class="seat open" aria-hidden="true"><span class="node"></span></div>
 
@@ -1124,7 +1147,7 @@ footer a:hover{color:var(--white)}
 <footer>
   <span>© <span id="yr"></span> Jen Preisser Consulting</span>
   <span class="mono" style="opacity:.55">Berlin <span id="clock2">:</span></span>
-  <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span>
+  <span><a href="impressum.html">Impressum</a> · <a href="#">Datenschutz</a></span>
 </footer>
 
 <script>
