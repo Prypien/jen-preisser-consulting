@@ -529,12 +529,12 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
    Die drei offenen Plätze sind bewusst stumm: dunkle Flächen, kein Text. */
 .team-lead{color:var(--fg-2);max-width:48ch;margin-top:18px}
 .crew{
-  display:grid;grid-template-columns:1.45fr 1fr;
+  display:grid;grid-template-columns:1.45fr 1fr 1fr;
   gap:clamp(10px,1.4vw,20px);margin-top:clamp(40px,5vw,70px);
   position:relative;padding-top:26px;align-items:stretch;
-  /* Deckel: bei zwei Koepfen wuerden die Kacheln sonst die halbe
-     Seitenhoehe fuellen. Mit jeder weiteren Person mit hochziehen. */
-  max-width:820px;
+  /* Deckel: sonst fuellen die Kacheln die halbe Seitenhoehe.
+     Mit jeder weiteren Person mit hochziehen, damit die Kachelgroesse gleich bleibt. */
+  max-width:1170px;
 }
 /* die Linie, auf der alle sitzen */
 .crew::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--hair)}
@@ -571,22 +571,20 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
 .role{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
 
 @media(max-width:1000px){
-  .crew{grid-template-columns:1fr 1fr 1fr}
-  /* Der Lead legt sich quer und wird zweispaltig: das Foto behält sein
-     4:5 und muss nicht in ein Breitformat gequetscht werden. */
-  .seat.lead{
-    grid-column:1 / -1;display:grid;align-items:end;
-    grid-template-columns:minmax(0,215px) 1fr;gap:clamp(16px,3vw,34px);
-  }
-  .seat.lead .who{padding-top:0}
-  /* Sobald die Reihe umbricht, sitzen die Knoten nicht mehr auf der Linie,
-     sondern im Text der Zeile darüber. Stattdessen markiert eine Fahne den Lead. */
+  /* Ab hier tragen alle dasselbe Kartenformat: der Lead als Querformat
+     neben Text hat die Rangfolge umgedreht, sobald zwei weitere Karten
+     in voller Spaltenbreite danebenstanden. */
+  .crew{grid-template-columns:1fr 1fr;max-width:none}
+  .seat.lead{grid-column:auto;display:flex;flex-direction:column}
+  .seat .face{aspect-ratio:4/5;flex:none}
+  /* Sobald die Reihe umbricht, saessen die Knoten nicht mehr auf der Linie,
+     sondern im Text der Zeile darueber. Stattdessen markiert eine Fahne den Lead. */
   .seat .node{display:none}
   .seat.lead .face::after{content:"";position:absolute;left:0;top:0;width:46px;height:3px;background:var(--acc);z-index:2}
 }
 @media(max-width:620px){
   /* zwei Karten nebeneinander waeren auf dem Handy nur noch Briefmarken */
-  .crew{grid-template-columns:1fr}
+  .crew{grid-template-columns:1fr;max-width:none}
   .seat.lead{grid-template-columns:minmax(0,150px) 1fr;gap:16px}
 }
 
@@ -765,7 +763,19 @@ footer a:hover{color:var(--white)}
       <div class="who">
         <span class="pos"><b>02</b> Berater</span>
         <h3>Tim Lemmrich</h3>
-        <span class="role">AI Sales · Langjährige Erfahrung</span>
+        <span class="role">AI Sales</span>
+      </div>
+    </article>
+
+    <article class="seat taken">
+      <span class="node"></span>
+      <div class="face">
+        <img src="bilder/sandra-meltzer.jpg" alt="Sandra Meltzer" loading="lazy" decoding="async" width="1000" height="1250">
+      </div>
+      <div class="who">
+        <span class="pos"><b>03</b> Beraterin</span>
+        <h3>Sandra Meltzer</h3>
+        <span class="role">AI Marketing</span>
       </div>
     </article>
 
