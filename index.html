@@ -125,18 +125,6 @@ a{color:inherit;text-decoration:none}
 
 /* ═══════════════════ CHROME ═══════════════════ */
 #prog{position:fixed;top:0;left:0;height:2px;background:var(--acc);z-index:9991;width:0}
-.cursor{
-  position:fixed;top:0;left:0;width:11px;height:11px;border-radius:50%;
-  /* absolut, nicht gedreht: difference-Blend rechnet den Kontrast selbst aus */
-  background:var(--paper);pointer-events:none;z-index:9992;mix-blend-mode:difference;
-  transform:translate(-50%,-50%);transition:width .4s var(--e),height .4s var(--e),opacity .3s;
-  display:grid;place-items:center;overflow:hidden;
-}
-.cursor span{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;color:var(--ink);opacity:0;transition:opacity .25s;text-transform:uppercase}
-.cursor.big{width:68px;height:68px}
-.cursor.big span{opacity:1}
-@media (hover:none){.cursor{display:none}}
-
 #chapter{
   position:fixed;left:var(--pad);bottom:18px;z-index:190;
   font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
@@ -663,7 +651,6 @@ footer a:hover{color:var(--white)}
 </div>
 
 <div id="prog"></div>
-<div class="cursor" id="cur"><span>Mehr</span></div>
 <div id="chapter"><i></i><span id="chtxt"></span></div>
 
 <nav id="nav">
@@ -1149,20 +1136,6 @@ $('#yr').textContent=new Date().getFullYear();
   /* Notausstieg: im Hintergrund-Tab pausiert requestAnimationFrame —
      ohne das hier bliebe der Vorhang dauerhaft zu. */
   setTimeout(finish,DUR+HOLD+1500);
-})();
-
-/* ── CURSOR ── */
-(function(){
-  const cur=$('#cur'),lbl=cur.querySelector('span');
-  let cx=innerWidth/2,cy=innerHeight/2,tx=cx,ty=cy;
-  addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY},{passive:true});
-  (function loop(){cx=lerp(cx,tx,.19);cy=lerp(cy,ty,.19);
-    cur.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
-  const label=el=>el.closest('.rail')?'Ziehen':(el.tagName==='A'||el.tagName==='BUTTON'?'Klick':'Mehr');
-  $$('a,button,.pcard,.acc .it').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{lbl.textContent=label(el);cur.classList.add('big')});
-    el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
-  });
 })();
 
 /* ── NAV / FORTSCHRITT / KAPITEL ── */
