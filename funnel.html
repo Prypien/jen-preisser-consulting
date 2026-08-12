@@ -159,9 +159,6 @@ main{position:relative;z-index:10;flex:1;display:flex;align-items:flex-start;pad
 /* Pillen (Mehrfachauswahl, kurze Optionen) */
 .opts{display:flex;flex-wrap:wrap;gap:8px}
 /* Gruppen, damit die lange Liste lesbar bleibt */
-.optgroups{display:grid;gap:clamp(18px,2.4vw,26px)}
-.optgroup>span{display:block;margin-bottom:10px;font-family:'DM Mono',monospace;font-size:9.5px;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--fg-2);opacity:.75}
 .opt{position:relative;cursor:pointer;display:inline-flex;align-items:center;gap:9px;
   border:1px solid var(--hair);border-radius:100px;padding:11px 17px;font-size:14px;
   transition:border-color .4s var(--e),background .4s var(--e),color .4s var(--e)}
@@ -338,59 +335,10 @@ footer.nav{
     <section class="step" data-key="interesse" data-label="Interesse" data-need="interesse">
       <div class="qn">/03</div>
       <h2>Was interessiert Sie am meisten?</h2>
-      <p class="sub">Was oben steht, bekommt im Gespräch das meiste Gewicht.</p>
+      <p class="sub">Was hier steht, bekommt im Gespräch das meiste Gewicht. Ruhig konkret werden.</p>
       <div class="body">
-        <div class="optgroups">
-
-          <div class="optgroup">
-            <span>Wirtschaftlich</span>
-            <div class="opts">
-              <label class="opt"><input type="checkbox" name="interesse" value="Arbeitszeit sparen"><span>Arbeitszeit sparen</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Kosten senken"><span>Kosten senken</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Potenziale bestimmen"><span>Potenziale bestimmen</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Qualität verbessern"><span>Qualität verbessern</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Schneller liefern"><span>Schneller liefern</span></label>
-            </div>
-          </div>
-
-          <div class="optgroup">
-            <span>Bauen &amp; Automatisieren</span>
-            <div class="opts">
-              <label class="opt"><input type="checkbox" name="interesse" value="Toolbau mit KI"><span>Toolbau mit KI</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Appbau mit KI"><span>Appbau mit KI</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="App-Erweiterungen mit KI"><span>App-Erweiterungen mit KI</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Website oder Shop"><span>Website oder Shop</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Prozesse automatisieren"><span>Prozesse automatisieren</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Toolauswahl &amp; Aufsatz"><span>Toolauswahl &amp; Aufsatz</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Bestehende Systeme anbinden"><span>Bestehende Systeme anbinden</span></label>
-            </div>
-          </div>
-
-          <div class="optgroup">
-            <span>Im Tagesgeschäft</span>
-            <div class="opts">
-              <label class="opt"><input type="checkbox" name="interesse" value="Dokumente &amp; Angebote"><span>Dokumente &amp; Angebote</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Recherche &amp; Auswertung"><span>Recherche &amp; Auswertung</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Kundenkommunikation"><span>Kundenkommunikation</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Texte, Bilder, Inhalte"><span>Texte, Bilder, Inhalte</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="KI als zweites Gehirn"><span>KI als zweites Gehirn</span></label>
-            </div>
-          </div>
-
-          <div class="optgroup">
-            <span>Wissen &amp; Haltung</span>
-            <div class="opts">
-              <label class="opt"><input type="checkbox" name="interesse" value="Einfach Interesse an KI"><span>Einfach Interesse an KI</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Team befähigen"><span>Team befähigen</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Eigene Weiterbildung"><span>Eigene Weiterbildung</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Selbst bauen lernen"><span>Selbst bauen lernen</span></label>
-              <label class="opt"><input type="checkbox" name="interesse" value="Spielregeln &amp; Datenschutz"><span>Spielregeln &amp; Datenschutz</span></label>
-              <label class="opt" data-solo="1"><input type="checkbox" name="interesse" value="Weiß ich noch nicht"><span>Weiß ich noch nicht</span></label>
-            </div>
-          </div>
-
-        </div>
-        <div class="hint" data-for="interesse">Bitte mindestens einen Punkt wählen</div>
+        <textarea name="interesse" placeholder="Zum Beispiel: Unsere Angebotserstellung dauert pro Angebot zwei Stunden, davon ist das meiste Textarbeit."></textarea>
+        <div class="hint" data-for="interesse">Bitte kurz beschreiben, worum es geht</div>
       </div>
     </section>
 
@@ -428,19 +376,10 @@ footer.nav{
       </div>
     </section>
 
-    <!-- 05 ZIEL -->
-    <section class="step" data-key="ziel" data-label="Ziel">
-      <div class="qn">/05</div>
-      <h2>Was ist das Ziel dahinter?</h2>
-      <p class="sub">Der wichtigste Teil. Was soll sich konkret ändern, und warum gerade jetzt?</p>
-      <div class="body">
-        <textarea name="ziel" placeholder="Zum Beispiel: Unsere Angebotserstellung dauert pro Angebot zwei Stunden, davon ist das meiste Textarbeit."></textarea>
-      </div>
-    </section>
-
-    <!-- 06 KONTAKT -->
+    
+    <!-- 05 KONTAKT -->
     <section class="step" data-key="kontakt" data-label="Kontakt" data-need="email">
-      <div class="qn">/06</div>
+      <div class="qn">/05</div>
       <h2>Wie erreiche ich Sie?</h2>
       <p class="sub">Ich melde mich persönlich. Keine Newsletter, keine Weitergabe.</p>
       <div class="body">
@@ -453,9 +392,9 @@ footer.nav{
       </div>
     </section>
 
-    <!-- 07 ÜBERSICHT -->
+    <!-- 06 ÜBERSICHT -->
     <section class="step" data-key="review" data-label="Übersicht">
-      <div class="qn">/07</div>
+      <div class="qn">/06</div>
       <h2>Alles richtig so?</h2>
       <p class="sub">Kurz prüfen, dann raus damit. Jede Zeile lässt sich noch ändern.</p>
       <div class="body">
@@ -543,17 +482,17 @@ $('#terminsub').textContent=
   };
 
   function collect(){
-    const rows=[['Anliegen',val('anliegen')],['Level',val('level')],['Interesse',many('interesse').join(', ')]];
+    const rows=[['Anliegen',val('anliegen')],['Level',val('level')],['Interesse',txt('interesse')]];
     if(state.anliegen==='Webinar')rows.push(['Termin',val('termin')]);
     else{rows.push(['Dringlichkeit',val('rahmen')]);if(txt('team'))rows.push(['Teamgröße',txt('team')])}
-    rows.push(['Ziel',txt('ziel')],['Name',txt('name')],['Unternehmen',txt('firma')],['E-Mail',txt('email')]);
+    rows.push(['Name',txt('name')],['Unternehmen',txt('firma')],['E-Mail',txt('email')]);
     return rows.filter(([,v])=>v);
   }
   const asText=()=>collect().map(([k,v])=>`${k}: ${v}`).join('\n');
 
   /* Übersicht aufbauen, mit Sprung zurück zum jeweiligen Schritt */
   const KEY_OF={Anliegen:'anliegen',Level:'level',Interesse:'interesse',Termin:'termin',
-    Dringlichkeit:'rahmen','Teamgröße':'rahmen',Ziel:'ziel',Name:'kontakt',Unternehmen:'kontakt','E-Mail':'kontakt'};
+    Dringlichkeit:'rahmen','Teamgröße':'rahmen',Name:'kontakt',Unternehmen:'kontakt','E-Mail':'kontakt'};
   function buildReview(){
     const dl=$('#review');dl.innerHTML='';
     for(const [k,v] of collect()){
@@ -574,7 +513,7 @@ $('#terminsub').textContent=
     const need=step.dataset.need;
     if(!need)return true;
     if(need==='email')return mailOk();
-    if(need==='interesse')return many('interesse').length>0;
+    if(need==='interesse')return txt('interesse').length>0;
     return !!val(need);
   }
   function showHint(step,on){
@@ -635,14 +574,7 @@ $('#terminsub').textContent=
   /* Auswahl aktualisiert Pfad, Hinweise und ggf. den Sprung nach vorn */
   /* „Weiß ich noch nicht" verträgt sich nicht mit konkreten Angaben:
      es schließt die anderen aus und wird von jeder anderen Wahl gelöst. */
-  document.addEventListener('change',e=>{
-    const box=e.target&&e.target.name==='interesse'?e.target:null;
-    if(box){
-      const solo=$$('#steps [data-solo] input');
-      const rest=$$('[name=interesse]').filter(i=>!i.closest('[data-solo]'));
-      if(box.closest('[data-solo]')&&box.checked)rest.forEach(i=>i.checked=false);
-      else if(box.checked)solo.forEach(i=>i.checked=false);
-    }
+  document.addEventListener('change',()=>{
     sync();
     paintProgress();
     const step=visible()[idx];
