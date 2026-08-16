@@ -102,7 +102,7 @@ body::after{
 }
 @keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-2%,2%)}50%{transform:translate(2%,-2%)}75%{transform:translate(-1%,-2%)}100%{transform:translate(0,0)}}
 
-h1,h2,h3,h4,.dsp{font-weight:800;font-stretch:118%;font-variation-settings:'wdth' 118;letter-spacing:-.035em;line-height:.94}
+h1,h2,h3,h4{font-weight:800;font-stretch:118%;font-variation-settings:'wdth' 118;letter-spacing:-.035em;line-height:.94}
 .ital{font-style:italic;font-weight:700}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--acc);color:#fff}
@@ -110,7 +110,6 @@ a{color:inherit;text-decoration:none}
 .wrap{padding-inline:var(--pad)}
 .mono,.eyebrow{font-family:'DM Mono',ui-monospace,monospace;font-size:10.5px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-2)}
 .eyebrow em{font-style:normal;color:var(--acc)}
-.hr{height:1px;background:var(--hair)}
 
 /* ═══════════════════ LADESCHIRM ═══════════════════ */
 #pre{position:fixed;inset:0;z-index:10000;background:var(--black);color:var(--white);display:grid;place-items:center;clip-path:inset(0 0 0 0);transition:clip-path 1.1s var(--e)}
@@ -211,7 +210,6 @@ header.hero{
 @keyframes fl2{50%{transform:translate(9vw,-5vh) scale(.9)}}
 #mesh{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
 
-@keyframes ping{70%,100%{box-shadow:0 0 0 10px rgba(255,59,31,0)}}
 
 h1.hero-title{font-size:clamp(40px,9vw,150px);letter-spacing:-.045em;margin:3.2vh 0 3.2vh;position:relative}
 h1.hero-title .ln{display:block;overflow:hidden;padding-bottom:.04em}
@@ -263,12 +261,6 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
 .claim .cl.dim{color:var(--fg-2)}
 .claim .cl.hi{color:var(--acc)}
 
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--hair-2);border-block:1px solid var(--hair)}
-.stat{background:var(--bg);padding:24px 20px;transition:background .5s var(--e)}
-.stat:hover{background:var(--black-2)}
-.inv .stat:hover{background:var(--white-2)}
-.stat b{display:block;font-size:clamp(30px,3.8vw,54px);font-weight:500;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums;font-family:'DM Mono',monospace}
-.stat small{display:block;margin-top:10px;font-size:11.5px;color:var(--fg-2);max-width:22ch;line-height:1.4}
 
 /* ═══════════════════ LEISTUNGEN — Tafeln, aktive kippt auf Weiß ═══════════════════ */
 .ways{
@@ -588,11 +580,8 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
   .seat.lead{grid-template-columns:minmax(0,150px) 1fr;gap:16px}
 }
 
-.sig{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
-.sig b{font-weight:400;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--hair);border-radius:100px;padding:5px 10px;color:var(--fg-2)}
 
 /* ═══════════════════ EINSTIEG IN DEN FUNNEL ═══════════════════ */
-.cta-lead{color:var(--fg-2);max-width:52ch;margin-top:clamp(26px,3.4vw,40px);font-size:clamp(14px,1.15vw,17px)}
 .entries{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:clamp(24px,3vw,36px);max-width:920px}
 .entry{
   position:relative;border:1px solid var(--hair);border-radius:3px;overflow:hidden;
@@ -621,8 +610,6 @@ section{padding:clamp(68px,10vh,148px) 0;position:relative;background:var(--bg);
 /* ═══════════════════ CTA ═══════════════════ */
 .cta h2{font-size:clamp(36px,8.4vw,138px);letter-spacing:-.05em}
 .cta h2 .ital{color:var(--acc)}
-.cta a.mail{display:inline-flex;align-items:center;gap:13px;margin-top:32px;font-size:clamp(16px,1.9vw,26px);font-weight:700;font-stretch:110%;letter-spacing:-.035em;border-bottom:1px solid var(--hair);padding-bottom:5px;transition:color .45s var(--e),border-color .45s;will-change:transform}
-.cta a.mail:hover{color:var(--acc);border-color:var(--acc)}
 .cta-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:22px;margin-top:clamp(42px,6.5vw,88px);padding-top:22px;border-top:1px solid var(--hair);font-size:12.5px;color:var(--fg-2)}
 .cta-meta b{display:block;font-family:'DM Mono',monospace;font-weight:400;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;opacity:.5;color:var(--white)}
 .cta-meta a:hover{color:var(--acc)}
