@@ -191,13 +191,15 @@ nav.hide{transform:translateY(-105%)}
 
 /* ═══════════════════ HERO ═══════════════════ */
 header.hero{
-  /* ohne die Kopfzeile braucht der Hero keine volle Bildschirmhoehe mehr */
-  min-height:min(78svh,760px);display:flex;flex-direction:column;justify-content:flex-end;
-  padding:132px var(--pad) 28px;position:relative;overflow:hidden;isolation:isolate;
+  min-height:min(92svh,900px);display:flex;flex-direction:column;justify-content:flex-end;
+  padding:150px var(--pad) 44px;position:relative;overflow:hidden;isolation:isolate;
   background:var(--black);
+  /* Seit das Laufband weg ist, liegen Hero und Haltung auf derselben
+     Flaeche. Die Kante macht den Uebergang wieder sichtbar. */
+  border-bottom:1px solid var(--hair);
 }
 /* schmal: die Mindesthoehe wuerde nur Leere ueber der Zeile erzeugen */
-@media(max-width:700px){header.hero{min-height:auto;padding:116px var(--pad) 24px}}
+@media(max-width:700px){header.hero{min-height:auto;padding:124px var(--pad) 32px}}
 .field{position:absolute;inset:0;z-index:-1;overflow:hidden}
 /* Lichthöfe liegen hinter dem Punktfeld */
 .field b{position:absolute;display:block;border-radius:50%;filter:blur(80px);z-index:0}
@@ -227,7 +229,8 @@ h1.hero-title .out:hover{color:var(--acc);-webkit-text-stroke-color:var(--acc)}
    ragen Ober- und Unterlängen des Nachbarworts hinein. Schrittweite = 1em + Lücke. */
 .slot li{height:1em;margin-bottom:.38em;white-space:nowrap;line-height:1;width:max-content}
 
-.hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;border-top:1px solid var(--hair);padding-top:16px;position:relative}
+/* keine eigene Linie: die Kante des Hero uebernimmt die Trennung */
+.hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;padding-top:16px;position:relative}
 .hero-foot .lead{max-width:38ch;font-size:clamp(15px,1.25vw,19px);line-height:1.4;display:flex;align-items:baseline;gap:12px}
 .hero-foot .lead .arrow{flex:none;color:var(--acc);font-weight:700}
 .scrollcue{display:flex;align-items:center;gap:9px}
